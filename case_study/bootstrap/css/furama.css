@@ -1,0 +1,73 @@
+.menu{
+    background-color: #046056;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.menu-top{
+    height: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    width: 90%;
+    left: 5%;
+    margin: 0;
+}
+
+.center-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.space-between-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+hr {
+    margin: 0;
+    width: 100%;
+    border: solid 1px lightgray;
+}
+
+.address{
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.trip-advisor{
+    border-top: solid 5px #046056;
+    box-shadow: 0 0.1rem 0.1rem 0.1rem lightgray;
+}
+
+.trip1{
+    width: 118px;
+    height: 19px;
+}
+
+.trip2{
+    width: 75px;
+    height: 18px;
+}
+
+.trip-text{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.navigation{
+    font-weight: 500;
+}
+
+.navigation:hover{
+    background-color: #00805D;
+}
+
+body{
+    width: 100%;
+    background: #f3f3f3;
+}
+
