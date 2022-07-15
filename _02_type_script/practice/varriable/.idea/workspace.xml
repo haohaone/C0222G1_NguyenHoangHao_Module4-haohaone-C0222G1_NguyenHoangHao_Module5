@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2dbb8a37-af4f-4ce9-8086-f5bc37a4d10b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../kiem_tra_so_nt/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kiem_tra_so_nt/src/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../kiem_tra_so_nt/src/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../loop/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../loop/src/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../loop/src/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../object/src/IArea.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../object/src/Shape.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../object/src/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../object/src/rectangle.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../object/src/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../variable/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../variable/src/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../variable/src/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2BwCiEWo8i7BPrktIK1eLNHEQx8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\WebStorm 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C0222G1_Nguyen_Hoang_Hao_module5\_02_type_script\practice\variable\src" />
+      <recent name="D:\C0222G1_Nguyen_Hoang_Hao_module5\_02_type_script\practice\variable\node_modules" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2dbb8a37-af4f-4ce9-8086-f5bc37a4d10b" name="Default Changelist" comment="" />
+      <created>1657807885657</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1657807885657</updated>
+      <workItem from="1657807887037" duration="2349000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../variable/src/main.js" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="462" y="125" key="FileChooserDialogImpl" timestamp="1657808709504">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="462" y="125" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1657808709504" />
+  </component>
+</project>

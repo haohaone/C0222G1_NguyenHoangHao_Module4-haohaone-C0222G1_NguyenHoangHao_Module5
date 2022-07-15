@@ -15,16 +15,22 @@
     margin: 0;
 }
 
-.center-box{
+.center-box {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.space-between-box{
+.space-between-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.space-around-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 hr {
@@ -33,7 +39,7 @@ hr {
     border: solid 1px lightgray;
 }
 
-.address{
+.address {
     font-weight: 500;
     font-size: 13px;
 }
@@ -62,12 +68,89 @@ hr {
     font-weight: 500;
 }
 
-.navigation:hover{
+.navigation:hover {
     background-color: #00805D;
 }
 
-body{
+body {
     width: 100%;
     background: #f3f3f3;
+}
+
+.edit {
+    border: solid 2px #046056;
+    color: #046056;
+    font-weight: 500;
+    background-color: white;
+}
+
+.delete {
+    background-color: #046056;
+    color: white;
+    font-weight: 500;
+}
+
+.edit:hover {
+    background-color: #046056;
+    color: white;
+    font-weight: 500;
+}
+
+.delete:hover {
+    border: solid 2px #046056;
+    color: #046056;
+    font-weight: 500;
+    background-color: white;
+}
+
+.footer {
+    height: 500px;
+    background-color: #addccf;
+    color: #707070;
+}
+
+.footer-box {
+    position: relative;
+    width: 90%;
+    left: 5%;
+}
+
+.map {
+    background-color: white;
+    color: #212121;
+}
+
+.view-map {
+    background-color: #046056;
+    height: 52px;
+    color: #707070;
+    font-size: 20px;
+}
+
+.view-map:hover {
+    color: white;
+}
+
+.another-action{
+    color: #707070;
+    font-size: 16px;
+}
+
+.another-action:hover{
+    color: white;
+    text-decoration-color: white;
+}
+
+.gmail{
+    color: #707070;
+}
+
+.gmail:hover{
+    color: #707070;
+    text-decoration-color: #707070;
+}
+
+.fb-yt:hover{
+    text-decoration: none;
 }
 
