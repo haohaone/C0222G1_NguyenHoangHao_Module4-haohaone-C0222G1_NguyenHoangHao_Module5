@@ -96,11 +96,14 @@
         </a>
     </div>
 </div>
-<div class="bg-menu center-box mb-5">
+<div class="bg-menu center-box mb-4">
     <h1 style="color: white; font-size: 50px">FURAMA CUSTOMER</h1>
 </div>
 
 <div class="container">
+    <div class="mb-4 w-100">
+        <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW CUSTOMER</button>
+    </div>
     <table class="table table-hover">
         <tr>
             <th class="text-center">Id</th>
@@ -120,12 +123,12 @@
             <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
             <td class="text-center">DIAMOND</td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#edit">
                     Edit
                 </button>
             </td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#delete">
                     Delete
                 </button>
             </td>
@@ -138,12 +141,12 @@
             <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
             <td class="text-center">DIAMOND</td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#edit">
                     Edit
                 </button>
             </td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#delete">
                     Delete
                 </button>
             </td>
@@ -156,12 +159,12 @@
             <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
             <td class="text-center">DIAMOND</td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#edit">
                     Edit
                 </button>
             </td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#delete">
                     Delete
                 </button>
             </td>
@@ -174,12 +177,12 @@
             <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
             <td class="text-center">DIAMOND</td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#edit">
                     Edit
                 </button>
             </td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#delete">
                     Delete
                 </button>
             </td>
@@ -192,17 +195,26 @@
             <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
             <td class="text-center">DIAMOND</td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#edit">
                     Edit
                 </button>
             </td>
             <td class="text-center">
-                <button class="btn text-white" style="background-color: #046056">
+                <button class="btn text-white" style="background-color: #046056" data-toggle="modal" data-target="#delete">
                     Delete
                 </button>
             </td>
         </tr>
-
+        <tr>
+            <td colspan="8" class="text-center">
+                <button class="btn text-white pr-3" style="background-color: #046056">
+                    Previous
+                </button>
+                <button class="btn text-white pl-3" style="background-color: #046056">
+                    Next
+                </button>
+            </td>
+        </tr>
     </table>
 </div>
 
@@ -329,35 +341,41 @@
                     <form class="w-100">
                         <div class="p-3">
                             <div class="font-weight-bold form-group center-box" style="font-size: 25px">
-                                EDIT FACILITY
+                                EDIT CUSTOMER
                             </div>
                             <div class="form-group">
-                                <label>Id facility:</label>
+                                <label>Id customer:</label>
                                 <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
                             <div class="form-group">
-                                <label>Name facility:</label>
+                                <label>Name customer:</label>
                                 <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
                             <div class="form-group">
-                                <label>Type facility:</label>
+                                <label>Day of birth:</label>
+                                <input type="date"
+                                       class="form-control text-dark"
+                                       style="border: solid 2px #046056">
+                            </div>
+                            <div class="form-group">
+                                <label>Id card:</label>
                                 <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
                             <div class="form-group">
-                                <label>Max people:</label>
-                                <input type="number"
+                                <label>Address:</label>
+                                <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
                             <div class="form-group">
-                                <label>Area service:</label>
-                                <input type="number"
+                                <label>Type customer:</label>
+                                <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
@@ -382,35 +400,41 @@
                     <form class="w-100">
                         <div class="p-3">
                             <div class="font-weight-bold form-group center-box" style="font-size: 25px">
-                                ADD NEW FACILITY
+                                ADD NEW CUSTOMER
                             </div>
                             <div class="form-group">
-                                <label>Id facility:</label>
+                                <label>Id customer:</label>
                                 <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
                             <div class="form-group">
-                                <label>Name facility:</label>
+                                <label>Name customer:</label>
                                 <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
                             <div class="form-group">
-                                <label>Type facility:</label>
+                                <label>Day of birth:</label>
+                                <input type="date"
+                                       class="form-control text-dark"
+                                       style="border: solid 2px #046056">
+                            </div>
+                            <div class="form-group">
+                                <label>Id card:</label>
                                 <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
                             <div class="form-group">
-                                <label>Max people:</label>
-                                <input type="number"
+                                <label>Address:</label>
+                                <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
                             <div class="form-group">
-                                <label>Area service:</label>
-                                <input type="number"
+                                <label>Type customer:</label>
+                                <input type="text"
                                        class="form-control text-dark"
                                        style="border: solid 2px #046056">
                             </div>
