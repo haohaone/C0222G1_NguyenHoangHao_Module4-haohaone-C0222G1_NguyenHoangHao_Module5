@@ -78,7 +78,7 @@ body {
 }
 
 .edit {
-    border: solid 2px #046056;
+    border: solid 1px #046056;
     color: #046056;
     font-weight: 500;
     background-color: white;
@@ -86,18 +86,20 @@ body {
 
 .delete {
     background-color: #046056;
+    border: solid 1px #046056;
     color: white;
     font-weight: 500;
 }
 
 .edit:hover {
     background-color: #046056;
+    border: solid 1px #046056;
     color: white;
     font-weight: 500;
 }
 
 .delete:hover {
-    border: solid 2px #046056;
+    border: solid 1px #046056;
     color: #046056;
     font-weight: 500;
     background-color: white;
