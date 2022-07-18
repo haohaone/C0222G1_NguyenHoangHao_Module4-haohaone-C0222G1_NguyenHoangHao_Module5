@@ -1,0 +1,168 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+.menu{
+  background-color: #046056;
+  height: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.menu-top{
+  height: 120px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  width: 90%;
+  left: 5%;
+  margin: 0;
+}
+
+.center-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.space-between-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.space-around-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+hr {
+  margin: 0;
+  width: 100%;
+  border: solid 1px lightgray;
+}
+
+.address {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.trip-advisor{
+  border-top: solid 5px #046056;
+  box-shadow: 0 0.1rem 0.1rem 0.1rem lightgray;
+}
+
+.trip1{
+  width: 118px;
+  height: 19px;
+}
+
+.trip2{
+  width: 75px;
+  height: 18px;
+}
+
+.trip-text{
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.navigation{
+  font-weight: 500;
+}
+
+.navigation:hover {
+  background-color: #00805D;
+}
+
+body {
+  width: 100%;
+  background: #f3f3f3;
+}
+
+.edit {
+  border: solid 1px #046056;
+  color: #046056;
+  font-weight: 500;
+  background-color: white;
+}
+
+.delete {
+  background-color: #046056;
+  border: solid 1px #046056;
+  color: white;
+  font-weight: 500;
+}
+
+.edit:hover {
+  background-color: #046056;
+  border: solid 1px #046056;
+  color: white;
+  font-weight: 500;
+}
+
+.delete:hover {
+  border: solid 1px #046056;
+  color: #046056;
+  font-weight: 500;
+  background-color: white;
+}
+
+.footer {
+  height: 500px;
+  background-color: #addccf;
+  color: #707070;
+}
+
+.footer-box {
+  position: relative;
+  width: 90%;
+  left: 5%;
+}
+
+.map {
+  background-color: white;
+  color: #212121;
+}
+
+.view-map {
+  background-color: #046056;
+  height: 52px;
+  color: #707070;
+  font-size: 20px;
+}
+
+.view-map:hover {
+  color: white;
+}
+
+.another-action{
+  color: #707070;
+  font-size: 16px;
+}
+
+.another-action:hover{
+  color: white;
+  text-decoration-color: white;
+}
+
+.gmail{
+  color: #707070;
+}
+
+.gmail:hover{
+  color: #707070;
+  text-decoration-color: #707070;
+}
+
+.fb-yt:hover{
+  text-decoration: none;
+}
+
+th,td{
+  height: 50px;
+}
+
+tr:hover{
+  background-color: rgba(229, 229, 229, 0.92);
+}
+

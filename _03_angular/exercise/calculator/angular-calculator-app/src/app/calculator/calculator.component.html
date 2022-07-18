@@ -1,0 +1,13 @@
+<input type="number" [(ngModel)]="num1"/>
+<br>
+<select [(ngModel)]="mark">
+  <option value="+" selected>+</option>
+  <option value="-">-</option>
+  <option value="*">x</option>
+  <option value="/">/</option>
+</select>
+<br>
+<input type="number" [(ngModel)]="num2">
+<br>
+<button (click)="calculator()">Calcutor</button>
+<h1>{{result}}</h1>
