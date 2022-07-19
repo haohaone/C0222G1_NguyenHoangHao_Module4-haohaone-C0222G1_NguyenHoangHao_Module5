@@ -1,0 +1,30 @@
+<div class="bg-menu center-box mb-5">
+  <h1 style="color: white; font-size: 50px">ARTICLE INFORMATION</h1>
+</div>
+<div class="container">
+  <table class="w-100">
+    <tr>
+      <th class="text-center">Title:</th>
+      <td><textarea [(ngModel)]="article.title" class="w-100"></textarea></td>
+    </tr>
+    <tr>
+      <th class="text-center">Url:</th>
+      <td class="text-center">
+        <textarea [(ngModel)]="article.url" class="w-100"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button class="btn delete" style="float: right; " (click)="addNewArticle()">Add</button></td>
+    </tr>
+  </table>
+</div>
+<div class="container">
+  <table class="w-100">
+    <tr *ngFor="let art of articles">
+      <th class="text-center"><a style="text-decoration: none; color: #046056" href="{{art.url}}" target="_blank">{{art.title}}</a></th>
+      <td><app-like1></app-like1></td>
+    </tr>
+  </table>
+</div>
+

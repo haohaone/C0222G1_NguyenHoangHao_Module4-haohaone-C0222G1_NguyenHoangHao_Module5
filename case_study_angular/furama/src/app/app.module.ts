@@ -6,6 +6,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FacilityComponent } from './facility/facility.component';
 import { CustomerComponent } from './customer/customer.component';
+import { ContractComponent } from './contract/contract.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -13,11 +15,13 @@ import { CustomerComponent } from './customer/customer.component';
     HeaderComponent,
     FooterComponent,
     FacilityComponent,
-    CustomerComponent
+    CustomerComponent,
+    ContractComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -7,21 +7,26 @@
   <div class="mb-5 w-100">
     <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW FACILITY</button>
   </div>
-  <div class="row space-between-box mb-5">
-    <div class="card" style="width: 32%;">
-      <img class="card-img-top"
-           src="https://www.banyantree.com/_next/image?url=https%3A%2F%2Fwww.banyantree.com%2Fassets%2F2021-10%2Fhot-spring-retreat-twin-other-image.jpg&w=640&q=75"
-           alt="Card image cap">
+  <div class="row mb-5">
+    <div *ngFor="let facility of facilityList" class="card m-2" style="width: 32%; float: left">
+      <img class="card-img-top" [src]="facility.url" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Hot Spring Retreat - Twin</h5>
-        <p class="card-text">A cosy retreat with a personal hot spring pool</p>
+        <h5 class="card-title" style="color:#046056; font-weight: 500">{{facility.name}}</h5>
         <ul style="list-style: none" class="p-0">
+          <li class="row">
+            <div class="col-md-2 center-box">
+              <span style="color: #046056"><i class="bi bi-house-fill"></i></span>
+            </div>
+            <div class="col-md-10">
+              <span>{{facility.id}}</span>
+            </div>
+          </li>
           <li class="row">
             <div class="col-md-2 center-box">
               <span style="color: #046056"><i class="bi bi-people-fill"></i></span>
             </div>
             <div class="col-md-10">
-              <span>2</span>
+              <span>{{facility.maxPeople}}</span>
             </div>
           </li>
           <li class="row">
@@ -29,101 +34,25 @@
               <span style="color: #046056"><i class="bi bi-aspect-ratio-fill"></i></span>
             </div>
             <div class="col-md-10">
-              <span>70 m<sup>2</sup></span>
+              <span>{{facility.areaUse}} m<sup>2</sup></span>
             </div>
           </li>
           <li class="row">
-            <div class="col-md-2 center-box">
+            <div class="col-md-2 center-box" *ngIf="facility.view === 'Mountain view'">
               <img src="https://www.banyantree.com/assets/icons/Rooms%20-%20Mountain.svg" alt="#"
                    style="width: 30px; height: 30px">
             </div>
+            <div class="col-md-2 center-box" *ngIf="facility.view === 'Garden view'">
+              <img src="https://www.banyantree.com/assets/icons/Rooms%20-%20Garden.svg" alt="#"
+                   style="width: 30px; height: 30px">
+            </div>
             <div class="col-md-10">
-              <span>Moutain view</span>
+              <span>{{facility.view}}</span>
             </div>
           </li>
         </ul>
         <div class="mb-3">
-          <button class="btn w-100 delete" data-toggle="modal" data-target="#delete">Delete</button>
-        </div>
-        <div class="mt-3">
-          <button class="btn w-100 edit" data-toggle="modal" data-target="#edit">Edit</button>
-        </div>
-      </div>
-    </div>
-    <div class="card" style="width: 32%;">
-      <img class="card-img-top" src="https://www.banyantree.com/_next/image?url=https%3A%2F%2Fwww.banyantree.com%2Fassets%2F2021-11%2Fhot-spring-retreat-king-hero-image.jpg&w=640&q=75" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Hot Spring Retreat - Twin</h5>
-        <p class="card-text">A cosy retreat with a personal hot spring pool</p>
-        <ul style="list-style: none" class="p-0">
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-people-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>2</span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-aspect-ratio-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>70 m<sup>2</sup></span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <img src="https://www.banyantree.com/assets/icons/Rooms%20-%20Mountain.svg" alt="#"
-                   style="width: 30px; height: 30px">
-            </div>
-            <div class="col-md-10">
-              <span>Moutain view</span>
-            </div>
-          </li>
-        </ul>
-        <div class="mb-3">
-          <button class="btn w-100 delete" data-toggle="modal" data-target="#delete">Delete</button>
-        </div>
-        <div class="mt-3">
-          <button class="btn w-100 edit" data-toggle="modal" data-target="#edit">Edit</button>
-        </div>
-      </div>
-    </div>
-    <div class="card" style="width: 32%;">
-      <img class="card-img-top" src="https://www.banyantree.com/_next/image?url=https%3A%2F%2Fwww.banyantree.com%2Fassets%2F2021-11%2Fhot-spring-pool-villa-hero-image.jpg&w=640&q=75" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Hot Spring Retreat - Twin</h5>
-        <p class="card-text">A secluded villa surrounded by a private Chinese garden, with a hot spring pool</p>
-        <ul style="list-style: none" class="p-0">
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-people-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>2</span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-aspect-ratio-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>180 m<sup>2</sup></span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <img src="https://www.banyantree.com/assets/icons/Rooms%20-%20Mountain.svg" alt="#"
-                   style="width: 30px; height: 30px">
-            </div>
-            <div class="col-md-10">
-              <span>Garden</span>
-            </div>
-          </li>
-        </ul>
-        <div class="mb-3">
-          <button class="btn w-100 delete" data-toggle="modal" data-target="#delete">Delete</button>
+          <button class="btn w-100 delete" (click)="valueOfId(facility.id)" data-toggle="modal" data-target="#delete">Delete</button>
         </div>
         <div class="mt-3">
           <button class="btn w-100 edit" data-toggle="modal" data-target="#edit">Edit</button>
@@ -132,130 +61,6 @@
     </div>
   </div>
 
-  <div class="row space-between-box mb-5">
-    <div class="card" style="width: 32%;">
-      <img class="card-img-top"
-           src="https://www.banyantree.com/_next/image?url=https%3A%2F%2Fwww.banyantree.com%2Fassets%2F2021-10%2Fhot-spring-retreat-twin-other-image.jpg&w=640&q=75"
-           alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Hot Spring Retreat - Twin</h5>
-        <p class="card-text">A cosy retreat with a personal hot spring pool</p>
-        <ul style="list-style: none" class="p-0">
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-people-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>2</span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-aspect-ratio-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>70 m<sup>2</sup></span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <img src="https://www.banyantree.com/assets/icons/Rooms%20-%20Mountain.svg" alt="#"
-                   style="width: 30px; height: 30px">
-            </div>
-            <div class="col-md-10">
-              <span>Moutain view</span>
-            </div>
-          </li>
-        </ul>
-        <div class="mb-3">
-          <button class="btn w-100 delete" data-toggle="modal" data-target="#delete">Delete</button>
-        </div>
-        <div class="mt-3">
-          <button class="btn w-100 edit" data-toggle="modal" data-target="#edit">Edit</button>
-        </div>
-      </div>
-    </div>
-    <div class="card" style="width: 32%;">
-      <img class="card-img-top" src="https://www.banyantree.com/_next/image?url=https%3A%2F%2Fwww.banyantree.com%2Fassets%2F2021-11%2Fhot-spring-retreat-king-hero-image.jpg&w=640&q=75" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Hot Spring Retreat - Twin</h5>
-        <p class="card-text">A cosy retreat with a personal hot spring pool</p>
-        <ul style="list-style: none" class="p-0">
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-people-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>2</span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-aspect-ratio-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>70 m<sup>2</sup></span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <img src="https://www.banyantree.com/assets/icons/Rooms%20-%20Mountain.svg" alt="#"
-                   style="width: 30px; height: 30px">
-            </div>
-            <div class="col-md-10">
-              <span>Moutain view</span>
-            </div>
-          </li>
-        </ul>
-        <div class="mb-3">
-          <button class="btn w-100 delete" data-toggle="modal" data-target="#delete">Delete</button>
-        </div>
-        <div class="mt-3">
-          <button class="btn w-100 edit" data-toggle="modal" data-target="#edit">Edit</button>
-        </div>
-      </div>
-    </div>
-    <div class="card" style="width: 32%;">
-      <img class="card-img-top" src="https://www.banyantree.com/_next/image?url=https%3A%2F%2Fwww.banyantree.com%2Fassets%2F2021-11%2Fhot-spring-pool-villa-hero-image.jpg&w=640&q=75" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Hot Spring Retreat - Twin</h5>
-        <p class="card-text">A secluded villa surrounded by a private Chinese garden, with a hot spring pool</p>
-        <ul style="list-style: none" class="p-0">
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-people-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>2</span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <span style="color: #046056"><i class="bi bi-aspect-ratio-fill"></i></span>
-            </div>
-            <div class="col-md-10">
-              <span>180 m<sup>2</sup></span>
-            </div>
-          </li>
-          <li class="row">
-            <div class="col-md-2 center-box">
-              <img src="https://www.banyantree.com/assets/icons/Rooms%20-%20Mountain.svg" alt="#"
-                   style="width: 30px; height: 30px">
-            </div>
-            <div class="col-md-10">
-              <span>Garden</span>
-            </div>
-          </li>
-        </ul>
-        <div class="mb-3">
-          <button class="btn w-100 delete" data-toggle="modal" data-target="#delete">Delete</button>
-        </div>
-        <div class="mt-3">
-          <button class="btn w-100 edit" data-toggle="modal" data-target="#edit">Edit</button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 <app-footer></app-footer>
 
@@ -264,12 +69,15 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100 text-center" id="confirm">Are you sure you want to delete?</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title w-100 text-center" id="confirm">Are you sure you want to delete <br>
+          <span style="font-weight: 500; color: #046056">{{idToDelete}}</span></h4>
+        <button type="button" class="btn" style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn text-white" onclick="serviceIndex2()"
-                style="background-color: #046056">
+        <button type="button" class="btn text-white"
+                style="background-color: #046056"
+                data-dismiss="modal"
+        (click)="delete()">
           Delete
         </button>
         <button type="button" class="btn text-white" data-dismiss="modal" style="background-color: #046056">
@@ -284,38 +92,44 @@
 <div class="modal" id="edit">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header w-100">
+      <div class="modal-header row center-box w-100 border-0 pb-md-0">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="form-group col-md-10 center-box" style="font-size: 25px; font-weight: bold; color: #046056">
+          EDIT FACILITY
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn " style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+        </div>
+      </div>
+      <div class="modal-body w-100">
         <div class="w-100 center-box">
           <form class="w-100">
             <div class="p-3">
-              <div class="font-weight-bold form-group center-box" style="font-size: 25px">
-                EDIT FACILITY
-              </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Id facility:</label>
                 <input type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Name facility:</label>
                 <input type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Type facility:</label>
                 <input type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Max people:</label>
                 <input type="number"
                        class="form-control text-dark"
                        style="border: solid 2px #046056">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Area service:</label>
                 <input type="number"
                        class="form-control text-dark"
@@ -328,7 +142,6 @@
             </div>
           </form>
         </div>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
     </div>
   </div>
@@ -338,38 +151,44 @@
 <div class="modal" id="add">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header w-100">
+      <div class="modal-header row center-box w-100 border-0 pb-md-0">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="form-group col-md-10 center-box" style="font-size: 25px; font-weight: bold; color: #046056">
+          ADD NEW FACILITY
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn " style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+        </div>
+      </div>
+      <div class="modal-body w-100">
         <div class="w-100 center-box">
           <form class="w-100">
             <div class="p-3">
-              <div class="font-weight-bold form-group center-box" style="font-size: 25px">
-                ADD NEW FACILITY
-              </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Id facility:</label>
                 <input type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Name facility:</label>
                 <input type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Type facility:</label>
                 <input type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Max people:</label>
                 <input type="number"
                        class="form-control text-dark"
                        style="border: solid 2px #046056">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-3">
                 <label>Area service:</label>
                 <input type="number"
                        class="form-control text-dark"
@@ -382,8 +201,15 @@
             </div>
           </form>
         </div>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="bootstrap/js/bootstrap.js"></script>

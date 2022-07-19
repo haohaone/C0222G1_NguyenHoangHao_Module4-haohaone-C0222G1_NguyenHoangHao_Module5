@@ -8,7 +8,7 @@
     <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW CUSTOMER</button>
   </div>
   <table class="w-100 table-hover">
-    <tr>
+    <tr >
       <th class="text-center">Id</th>
       <th class="text-center">Name</th>
       <th class="text-center">Day of birth</th>
@@ -18,92 +18,20 @@
       <th class="text-center">Edit</th>
       <th class="text-center">Delete</th>
     </tr>
-    <tr>
-      <td class="text-center">CU-0001</td>
-      <td class="text-center">Hảo Hảo</td>
-      <td class="text-center">08/07/1999</td>
-      <td class="text-center">201787802</td>
-      <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
-      <td class="text-center">DIAMOND</td>
+    <tr *ngFor="let customer of customerList">
+      <td class="text-center">{{customer.id}}</td>
+      <td class="text-center">{{customer.name}}</td>
+      <td class="text-center">{{customer.dayOfBirth}}</td>
+      <td class="text-center">{{customer.idCard}}</td>
+      <td class="text-center">{{customer.address}}</td>
+      <td class="text-center">{{customer.type}}</td>
       <td class="text-center">
         <button class="btn delete" data-toggle="modal" data-target="#edit">
           Edit
         </button>
       </td>
       <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#delete">
-          Delete
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td class="text-center">CU-0001</td>
-      <td class="text-center">Hảo Hảo</td>
-      <td class="text-center">08/07/1999</td>
-      <td class="text-center">201787802</td>
-      <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
-      <td class="text-center">DIAMOND</td>
-      <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#edit">
-          Edit
-        </button>
-      </td>
-      <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#delete">
-          Delete
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td class="text-center">CU-0001</td>
-      <td class="text-center">Hảo Hảo</td>
-      <td class="text-center">08/07/1999</td>
-      <td class="text-center">201787802</td>
-      <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
-      <td class="text-center">DIAMOND</td>
-      <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#edit">
-          Edit
-        </button>
-      </td>
-      <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#delete">
-          Delete
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td class="text-center">CU-0001</td>
-      <td class="text-center">Hảo Hảo</td>
-      <td class="text-center">08/07/1999</td>
-      <td class="text-center">201787802</td>
-      <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
-      <td class="text-center">DIAMOND</td>
-      <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#edit">
-          Edit
-        </button>
-      </td>
-      <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#delete">
-          Delete
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td class="text-center">CU-0001</td>
-      <td class="text-center">Hảo Hảo</td>
-      <td class="text-center">08/07/1999</td>
-      <td class="text-center">201787802</td>
-      <td class="text-center">Số 12 Hòa An 14, Cẩm Lệ, Đà Nẵng</td>
-      <td class="text-center">DIAMOND</td>
-      <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#edit">
-          Edit
-        </button>
-      </td>
-      <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#delete">
+        <button class="btn delete" data-toggle="modal" data-target="#delete" (click)="valueOfId(customer.id)">
           Delete
         </button>
       </td>
@@ -122,3 +50,156 @@
 </div>
 <app-footer></app-footer>
 
+<div class="modal" id="delete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100 text-center" id="confirm">Are you sure you want to delete
+          <br>
+          <span style="font-weight: 500; color: #046056">{{idToDelete}}</span>
+        </h4>
+        <button type="button" class="btn" style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn text-white"
+                style="background-color: #046056"
+                (click)="delete()"
+                data-dismiss="modal"
+        >
+          Delete
+        </button>
+        <button type="button" class="btn text-white" data-dismiss="modal" style="background-color: #046056">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="edit">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header row center-box w-100 border-0 pb-md-0">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="form-group col-md-10 center-box" style="font-size: 25px; font-weight: bold; color: #046056">
+          EDIT CUSTOMER
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn " style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+        </div>
+      </div>
+      <div class="modal-body w-100">
+        <div class="w-100 center-box">
+          <form class="w-100">
+            <div class="p-3">
+              <div class="form-group mb-3">
+                <label>Id customer:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Name customer:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Day of birth:</label>
+                <input type="date"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Id card:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Address:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Type customer:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <button onclick="addNew()" class="btn btn-success w-100 text-white"
+                      style="background-color: #046056">
+                Edit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="add">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header row center-box w-100 border-0 pb-md-0">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="form-group col-md-10 center-box" style="font-size: 25px; font-weight: bold; color: #046056">
+          ADD NEW CUSTOMER
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn " style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+        </div>
+      </div>
+      <div class="modal-body w-100">
+        <div class="w-100 center-box">
+          <form class="w-100">
+            <div class="p-3">
+              <div class="form-group mb-3">
+                <label>Id customer:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Name customer:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Day of birth:</label>
+                <input type="date"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Id card:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Address:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Type customer:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <button onclick="addNew()" class="btn btn-success w-100 text-white"
+                      style="background-color: #046056">
+                Add new
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

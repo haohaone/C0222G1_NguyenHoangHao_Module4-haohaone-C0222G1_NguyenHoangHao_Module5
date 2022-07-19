@@ -1,0 +1,104 @@
+<app-header></app-header>
+<div class="bg-menu center-box mb-4">
+  <h1 style="color: white;
+    font-size: 50px;">FURAMA CONTRACT</h1>
+</div>
+
+<div class="container">
+  <div class="mb-4 w-100">
+    <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW CONTRACT</button>
+  </div>
+  <table class="w-100">
+    <tr>
+      <th class="text-center">Id</th>
+      <th class="text-center">Name Customer</th>
+      <th class="text-center">Start date</th>
+      <th class="text-center">End date</th>
+      <th class="text-center">Cost</th>
+      <th class="text-center">Total Price</th>
+    </tr>
+    <tr *ngFor="let contract of contractList">
+      <td class="text-center">{{contract.id}}</td>
+      <td class="text-center">{{contract.name}}</td>
+      <td class="text-center">{{contract.startDate}}</td>
+      <td class="text-center">{{contract.endDate}}</td>
+      <td class="text-center">{{contract.cost}}</td>
+      <td class="text-center">{{contract.totalPrice}}</td>
+    </tr>
+    <tr>
+      <td colspan="6" class="text-center">
+        <button class="btn text-white me-md-3" style="background-color: #046056">
+          Previous
+        </button>
+        <button class="btn text-white" style="background-color: #046056">
+          Next
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+<app-footer></app-footer>
+<!--Modal add new-->
+<div class="modal" id="add">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header row center-box w-100 border-0 pb-md-0">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="form-group col-md-10 center-box" style="font-size: 25px; font-weight: bold; color: #046056">
+          ADD NEW CONTRACT
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn " style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+        </div>
+      </div>
+      <div class="modal-body w-100">
+        <div class="w-100 center-box">
+          <form class="w-100">
+            <div class="p-3">
+              <div class="form-group mb-3">
+                <label>Id contract:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Name customer:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Start date:</label>
+                <input type="date"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>End date:</label>
+                <input type="date"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Cost:</label>
+                <input type="number"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <div class="form-group mb-3">
+                <label>Total price:</label>
+                <input type="number"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056">
+              </div>
+              <button onclick="addNew()" class="btn btn-success w-100 text-white"
+                      style="background-color: #046056">
+                Add new
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

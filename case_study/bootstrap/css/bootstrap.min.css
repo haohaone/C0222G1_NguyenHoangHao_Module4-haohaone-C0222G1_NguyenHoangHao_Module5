@@ -5353,7 +5353,7 @@ button.close {
 }
 
 .modal-open {
-    overflow: hidden
+        : hidden
 }
 
 .modal {
