@@ -1,0 +1,13 @@
+.salmon{
+  font-weight: bold;
+  font-size: 30px;
+  background-color: salmon;
+  color: white;
+}
+
+.gray{
+  font-weight: bold;
+  font-size: 30px;
+  background-color: gray;
+  color: white;
+}

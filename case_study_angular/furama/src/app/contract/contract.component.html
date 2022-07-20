@@ -20,8 +20,8 @@
     <tr *ngFor="let contract of contractList">
       <td class="text-center">{{contract.id}}</td>
       <td class="text-center">{{contract.name}}</td>
-      <td class="text-center">{{contract.startDate}}</td>
-      <td class="text-center">{{contract.endDate}}</td>
+      <td class="text-center">{{contract.startDate | date:"dd/MM/yyyy"}}</td>
+      <td class="text-center">{{contract.endDate | date:"dd/MM/yyyy"}}</td>
       <td class="text-center">{{contract.cost}}</td>
       <td class="text-center">{{contract.totalPrice}}</td>
     </tr>

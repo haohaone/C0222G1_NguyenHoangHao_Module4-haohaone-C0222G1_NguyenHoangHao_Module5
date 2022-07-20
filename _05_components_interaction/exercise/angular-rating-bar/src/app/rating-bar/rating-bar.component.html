@@ -1,0 +1,20 @@
+<h1>Rating bar</h1>
+<div *ngIf="ratingStatus == true">
+  {{ value }}
+</div>
+<div>
+  <div *ngFor="let num of ratingUnits; index as i">
+    <!--    <div *ngIf="num <= value" class="salmon">{{num + 1}}</div>-->
+    <!--    <div *ngIf="num > value" class="gray">{{num + 1}}</div>-->
+    <button *ngIf="i + 1 <= value" style="width: 5%; text-align: center; float: left; margin: 10px; border: none"
+            class="salmon"
+            (click)="rating(i + 1)">
+      {{i + 1}}
+    </button>
+    <button *ngIf="i + 1 > value" style="width: 5%; text-align: center; float: left; margin: 10px; border: none"
+            class="gray"
+            (click)="rating(i + 1)">
+      {{i + 1}}
+    </button>
+  </div>
+</div>

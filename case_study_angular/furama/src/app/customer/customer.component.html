@@ -21,7 +21,7 @@
     <tr *ngFor="let customer of customerList">
       <td class="text-center">{{customer.id}}</td>
       <td class="text-center">{{customer.name}}</td>
-      <td class="text-center">{{customer.dayOfBirth}}</td>
+      <td class="text-center">{{customer.dayOfBirth | date:"dd/MM/yyyy"}}</td>
       <td class="text-center">{{customer.idCard}}</td>
       <td class="text-center">{{customer.address}}</td>
       <td class="text-center">{{customer.type}}</td>

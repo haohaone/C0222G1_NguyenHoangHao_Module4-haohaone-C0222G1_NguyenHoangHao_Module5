@@ -1,0 +1,19 @@
+<h1>Countdown Timer</h1>
+<div>
+  <button
+    style="background: #1976d2; margin: 10px; width: 5%; height: 30px; font-size: 20px; font-weight: bold; color: white"
+    (click)="startCount()">
+    Start
+  </button>
+  <button
+    style="background: salmon; margin: 10px; width: 5%; height: 30px; font-size: 20px; font-weight: bold; color: white"
+    (click)="endCount()">
+    Stop
+  </button>
+  <button
+    style="background: green; margin: 10px; width: 5%; height: 30px; font-size: 20px; font-weight: bold; color: white"
+    (click)="resetCount()">
+    Reset
+  </button>
+</div>
+<h3>{{stringTime}}</h3>
