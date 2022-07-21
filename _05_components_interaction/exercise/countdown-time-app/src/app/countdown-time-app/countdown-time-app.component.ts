@@ -26,6 +26,7 @@ export class CountdownTimeAppComponent implements OnInit {
 
   resetCount() {
     this.time = 0;
+    this.stringTime = '00 : 00 : 00';
     clearInterval(this.setTime);
   }
 
