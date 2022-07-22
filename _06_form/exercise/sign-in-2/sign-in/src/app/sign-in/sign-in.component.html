@@ -15,7 +15,7 @@
           <div class="text-white d-flex justify-content-center mb-4"
                style="font-weight: bold"
                *ngIf="signInForm.controls.email.hasError('email') &&
-                                      signInForm.controls.email.dirty">
+                                      signInForm.controls.email.touched">
             Your input email is wrong format!
           </div>
           <div class="input-group form-group">
@@ -27,7 +27,7 @@
           <div class="text-white d-flex justify-content-center mb-2"
                style="font-weight: bold"
                *ngIf="signInForm.controls.password.hasError('required') &&
-                                      signInForm.controls.password.dirty">
+                                      signInForm.controls.password.touched">
             Please input password!
           </div>
           <div class="text-white d-flex justify-content-center mb-2"
