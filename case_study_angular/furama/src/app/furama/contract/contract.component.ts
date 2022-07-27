@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Contract} from "./contract";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Customer} from "../customer/customer";
+import {CustomerComponent} from "../customer/customer.component";
 
 @Component({
   selector: 'app-contract',
@@ -7,6 +10,7 @@ import {Contract} from "./contract";
   styleUrls: ['./contract.component.css']
 })
 export class ContractComponent implements OnInit {
+  contractForm: FormGroup;
   contractList: Contract[] = [
     {
       id: 'CT-0001',
@@ -53,11 +57,34 @@ export class ContractComponent implements OnInit {
       totalPrice: 16000
     },
   ]
+  msg: string = '';
+  customerComponent: CustomerComponent;
+  customerList: Customer[] = this.customerComponent.customerList;
 
   constructor() {
   }
 
   ngOnInit(): void {
+    this.contractForm = new FormGroup({
+      id: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      startDate: new FormControl('', Validators.required),
+      endDate: new FormControl('', Validators.required),
+      cost: new FormControl('', Validators.required),
+      totalPrice: new FormControl('', Validators.required),
+    }, this.checkEndDate)
   }
 
+  addNew(){
+    const contract = this.contractForm.value;
+    this.contractList.push(contract);
+    this.msg = 'Add new successful!'
+  }
+
+  checkEndDate(abstractControl: AbstractControl): any{
+    console.log(abstractControl.errors)
+      const startDate = new Date(abstractControl.value.startDate);
+      const endDate = new Date(abstractControl.value.endDate);
+      return (endDate.getTime() >= startDate.getTime())? null : {beforeDate: true};
+  }
 }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from "./customer";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Subscription} from "rxjs";
+import {CustomerService} from "../service/customer/customer.service";
+import {TypeCustomer} from "./type-customer";
 
 @Component({
   selector: 'app-customer',
@@ -8,58 +12,79 @@ import {Customer} from "./customer";
 })
 export class CustomerComponent implements OnInit {
   idToDelete: string;
-
-  customerList: Customer[] = [
-    {id: 'CU-0001',
-      name: 'Nguyễn Hoàng Hảo',
-      dayOfBirth: '1999-07-08',
-      idCard: '201787802',
-      address: 'Đà Nẵng',
-      type: 'Diamond'},
-
-    {id: 'CU-0002',
-      name: 'Nguyễn Thảo Uyên',
-      dayOfBirth: '1999-08-13',
-      idCard: '768634215',
-      address: 'Đà Nẵng',
-      type: 'Diamond'},
-
-    {id: 'CU-0003',
-      name: 'Nguyễn Duy Trung',
-      dayOfBirth: '2003-07-18',
-      idCard: '123535141',
-      address: 'Quảng Nam',
-      type: 'Silver'},
-
-    {id: 'CU-0004',
-      name: 'Trần Xuân Trường',
-      dayOfBirth: '1997-08-07',
-      idCard: '987064120',
-      address: 'Đà Nẵng',
-      type: 'Gold'},
-
-    {id: 'CU-0005',
-      name: 'Trần Mạnh Cường',
-      dayOfBirth: '1996-11-11',
-      idCard: '041236563',
-      address: 'Quảng Bình',
-      type: 'Platinum'},
-    ];
-  constructor() { }
+  customer: Customer
+  customerForm: FormGroup;
+  customerList: Customer[];
+  typeCustomer: TypeCustomer[];
+  msg: string = '';
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
+    this.customerForm = new FormGroup({
+      id: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      dayOfBirth: new FormControl('', [Validators.required, this.check18Age]),
+      idCard: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      type: new FormControl('', Validators.required),
+    });
+
+    this.customerService.getTypeCustomer().subscribe((data: any) =>
+      {this.typeCustomer = data},
+      error =>{console.log(error)});
+
+    this.customerService.getList().subscribe((data: any) =>
+      {this.customerList = data},
+      error =>{console.log(error)});
+  }
+
+  updateList(){
+     this.customerService.getList().subscribe((data: any) =>
+      {this.customerList = data},
+      error =>{console.log(error)});
+
+    this.customerService.getTypeCustomer().subscribe((data: any) =>
+      {this.typeCustomer = data},
+      error =>{console.log(error)});
   }
 
   delete() {
-    for (let i = 0; i < this.customerList.length; i++) {
-      if (this.customerList[i].id === this.idToDelete){
-        this.customerList.splice(i, 1)
-        break;
-      }
-    }
+    this.customerService.deleteById(this.idToDelete).subscribe((data)=>{},
+      error => {}, () => {this.updateList()});
+    this.msg = 'Delete successful!'
   }
 
   valueOfId(id: string) {
     this.idToDelete = id;
+  }
+
+  addNew(){
+    this.customer = this.customerForm.value;
+    this.customerService.save(this.customer).subscribe(()=>{},
+      error => {},() => {this.updateList()})
+    this.msg = 'Add new successful!'
+  }
+
+  private check18Age(abstractControl: AbstractControl): any {
+    let today = new Date();
+    let birthDate = new Date(abstractControl.value);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    let m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age >= 18? null: {not18: true};
+  }
+
+  edit(id: string) {
+    this.customerService.findById(id).subscribe(value => {this.customerForm.patchValue(value)})
+  }
+
+
+  editCustomer() {
+    this.customer = this.customerForm.value;
+    this.customerService.edit(this.customer).subscribe(()=>{},
+      error => {},() => {this.updateList()})
+    this.msg = 'Edit successful!'
   }
 }

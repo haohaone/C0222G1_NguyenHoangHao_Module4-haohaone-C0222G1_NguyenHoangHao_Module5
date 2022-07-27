@@ -4,11 +4,14 @@
     font-size: 50px;">FURAMA CUSTOMER</h1>
 </div>
 <div class="container">
-  <div class="mb-4 w-100">
+  <div class="mb-3 w-100">
     <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW CUSTOMER</button>
   </div>
+  <div class="w-100 center-box text-danger mb-3" style="font-weight: bold; font-size: 17px">
+    {{msg}}
+  </div>
   <table class="w-100 table-hover">
-    <tr >
+    <tr>
       <th class="text-center">Id</th>
       <th class="text-center">Name</th>
       <th class="text-center">Day of birth</th>
@@ -24,9 +27,15 @@
       <td class="text-center">{{customer.dayOfBirth | date:"dd/MM/yyyy"}}</td>
       <td class="text-center">{{customer.idCard}}</td>
       <td class="text-center">{{customer.address}}</td>
-      <td class="text-center">{{customer.type}}</td>
       <td class="text-center">
-        <button class="btn delete" data-toggle="modal" data-target="#edit">
+        <span *ngFor="let type of typeCustomer" class="text-center">
+                  <span *ngIf="type.id == customer.type"  class="text-center">
+                    {{type.type}}
+                  </span>
+        </span>
+      </td>
+      <td class="text-center">
+        <button class="btn delete" data-toggle="modal" data-target="#edit" (click)="edit(customer.id)">
           Edit
         </button>
       </td>
@@ -76,7 +85,7 @@
   </div>
 </div>
 
-<div class="modal" id="edit">
+<div class="modal" id="edit" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header row center-box w-100 border-0 pb-md-0">
@@ -90,47 +99,89 @@
       </div>
       <div class="modal-body w-100">
         <div class="w-100 center-box">
-          <form class="w-100">
+          <form class="w-100" [formGroup]="customerForm">
             <div class="p-3">
               <div class="form-group mb-3">
                 <label>Id customer:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="id" disabled>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056" formControlName="id" hidden>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.id.hasError('required') &&
+                                      customerForm.controls.id.dirty">
+                  Please input id customer!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Name customer:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056"
+                       formControlName="name">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.name.hasError('required') &&
+                                      customerForm.controls.name.dirty">
+                  Please input name customer!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Day of birth:</label>
                 <input type="date"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="dayOfBirth">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.dayOfBirth.hasError('required') &&
+                                      customerForm.controls.dayOfBirth.dirty">
+                  Please input date of birth!
+                </div>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.dayOfBirth.hasError('not18') &&
+                                      customerForm.controls.dayOfBirth.dirty">
+                  Your age under 18 years old!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Id card:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="idCard">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.idCard.hasError('required') &&
+                                      customerForm.controls.idCard.dirty">
+                  Please input id card!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Address:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="address">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.address.hasError('required') &&
+                                      customerForm.controls.address.dirty">
+                  Please input address!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Type customer:</label>
-                <input type="text"
-                       class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                <select class="form-control" formControlName="type" style="border: solid 2px #046056">
+                  <option value="" selected>--Choose type customer--</option>
+                  <option *ngFor="let type of typeCustomer" [ngValue]="type.id">{{type.type}}</option>
+                </select>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.type.hasError('required') &&
+                                      customerForm.controls.type.dirty">
+                  Please input type customer!
+                </div>
               </div>
-              <button onclick="addNew()" class="btn btn-success w-100 text-white"
-                      style="background-color: #046056">
-                Edit
+              <button (click)="editCustomer()" class="btn btn-success w-100 text-white"
+                      style="background-color: #046056"
+                      data-dismiss="modal"
+                      [disabled]="customerForm.invalid">
+                Add new
               </button>
             </div>
           </form>
@@ -154,46 +205,85 @@
       </div>
       <div class="modal-body w-100">
         <div class="w-100 center-box">
-          <form class="w-100">
+          <form class="w-100" [formGroup]="customerForm">
             <div class="p-3">
               <div class="form-group mb-3">
                 <label>Id customer:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="id">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.id.hasError('required') &&
+                                      customerForm.controls.id.dirty">
+                  Please input id customer!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Name customer:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056"
+                       formControlName="name">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.name.hasError('required') &&
+                                      customerForm.controls.name.dirty">
+                  Please input name customer!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Day of birth:</label>
                 <input type="date"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="dayOfBirth">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.dayOfBirth.hasError('required') &&
+                                      customerForm.controls.dayOfBirth.dirty">
+                  Please input date of birth!
+                </div>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.dayOfBirth.hasError('not18') &&
+                                      customerForm.controls.dayOfBirth.dirty">
+                  Your age under 18 years old!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Id card:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="idCard">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.idCard.hasError('required') &&
+                                      customerForm.controls.idCard.dirty">
+                  Please input id card!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Address:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="address">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.address.hasError('required') &&
+                                      customerForm.controls.address.dirty">
+                  Please input address!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Type customer:</label>
-                <input type="text"
-                       class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                <select class="form-control" formControlName="type" style="border: solid 2px #046056">
+                  <option value="" selected>--Choose type customer--</option>
+                  <option *ngFor="let type of typeCustomer" [ngValue]="type.id">{{type.type}}</option>
+                </select>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="customerForm.controls.type.hasError('required') &&
+                                      customerForm.controls.type.dirty">
+                  Please input type customer!
+                </div>
               </div>
-              <button onclick="addNew()" class="btn btn-success w-100 text-white"
-                      style="background-color: #046056">
+              <button (click)="addNew()" class="btn btn-success w-100 text-white"
+                      style="background-color: #046056"
+                      data-dismiss="modal"
+                      [disabled]="customerForm.invalid">
                 Add new
               </button>
             </div>

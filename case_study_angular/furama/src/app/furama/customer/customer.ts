@@ -4,5 +4,5 @@ export interface Customer {
   dayOfBirth: string;
   idCard: string;
   address: string;
-  type: string;
+  type: number;
 }

@@ -1,0 +1,187 @@
+<div class="bg-menu center-box mb-4">
+  <h1 style="color: white;
+    font-size: 50px;">STUDENT LIST</h1>
+</div>
+<div class="container">
+  <div class="mb-3 w-100">
+    <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW STUDENT</button>
+  </div>
+  <div class="w-100 center-box text-danger mb-3" style="font-weight: bold; font-size: 17px">
+    {{msg}}
+  </div>
+  <table class="w-100 table-hover">
+    <tr>
+      <th class="text-center">Id</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Day of birth</th>
+      <th class="text-center">Gender</th>
+      <th class="text-center">Class</th>
+      <th class="text-center">Edit</th>
+      <th class="text-center">Delete</th>
+    </tr>
+    <tr *ngFor="let student of studentList">
+      <td class="text-center">{{student.id}}</td>
+      <td class="text-center">{{student.name}}</td>
+      <td class="text-center">{{student.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+      <td class="text-center" *ngIf="student.gender == 1">Male</td>
+      <td class="text-center" *ngIf="student.gender == 0">Female</td>
+      <td class="text-center">{{student.class.name}}</td>
+      <td class="text-center">
+        <button class="btn delete"
+                routerLink="/edit/{{student.id}}">
+          Edit
+        </button>
+      </td>
+      <td class="text-center">
+        <button class="btn delete" data-toggle="modal" data-target="#delete" (click)="valueOfId(student.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8" class="text-center">
+        <button class="btn delete me-md-3" (click)="previous()" [hidden]="page == 1">
+          Previous
+        </button>
+        <button class="btn delete" (click)="next()" [hidden]="page == maxPage">
+          Next
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+<button class="bi bi-search icon-right btn center-box delete" data-toggle="modal" data-target="#search"></button>
+<button class="bi bi-house-door-fill icon-left btn center-box delete" (click)="home()"></button>
+
+<div class="modal" id="delete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100 text-center">Are you sure you want to delete
+          <br>
+          <span style="font-weight: 500; color: #046056">{{idStudent}}</span>
+        </h4>
+        <button type="button" class="btn" style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn text-white"
+                style="background-color: #046056"
+                (click)="delete()"
+                data-dismiss="modal">
+          Delete
+        </button>
+        <button type="button" class="btn text-white" data-dismiss="modal" style="background-color: #046056">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="add">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header row center-box w-100 border-0 pb-md-0">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="form-group col-md-10 center-box" style="font-size: 25px; font-weight: bold; color: #046056">
+          ADD NEW STUDENT
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn " style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+        </div>
+      </div>
+      <div class="modal-body w-100">
+        <div class="w-100 center-box">
+          <form class="w-100" [formGroup]="studentForm">
+            <div class="p-3">
+              <div class="form-group mb-3">
+                <label>Name student:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056"
+                       formControlName="name">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="studentForm.controls.name.hasError('required') &&
+                                      studentForm.controls.name.dirty">
+                  Please input name student!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Day of birth:</label>
+                <input type="date"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056" formControlName="dateOfBirth">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="studentForm.controls.dateOfBirth.hasError('required') &&
+                                      studentForm.controls.dateOfBirth.dirty">
+                  Please input date of birth!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Gender:</label>
+                <select class="form-control" formControlName="gender" style="border: solid 2px #046056">
+                  <option value="" selected>--Choose type gender--</option>
+                  <option value="1">Male</option>
+                  <option value="0">Female</option>
+                </select>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="studentForm.controls.gender.hasError('required') &&
+                                      studentForm.controls.gender.dirty">
+                  Please input type customer!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Class:</label>
+                <select class="form-control" formControlName="class" style="border: solid 2px #046056">
+                  <option value="" selected>--Choose class--</option>
+                  <option [ngValue]="class" *ngFor="let class of classList">{{class.name}}</option>
+                </select>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="studentForm.controls.class.hasError('required') &&
+                                      studentForm.controls.class.dirty">
+                  Please input class!
+                </div>
+              </div>
+              <button (click)="addNew()" class="btn btn-success w-100 text-white"
+                      style="background-color: #046056"
+                      data-dismiss="modal"
+                      [disabled]="studentForm.invalid">
+                Add new
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="search">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h4 class="modal-title w-100 text-center" style="color:#046056;">
+          Search by name student
+        </h4>
+        <button type="button" class="btn" style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+      </div>
+      <div class="modal-body border-0">
+        <input type="text"
+               class="form-control text-dark"
+               style="border: solid 2px #046056" [(ngModel)]="searchByName"
+               placeholder="Input name student">
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn text-white"
+                style="background-color: #046056"
+                (click)="search()"
+                data-dismiss="modal">
+          Search
+        </button>
+        <button type="button" class="btn text-white" data-dismiss="modal" style="background-color: #046056">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

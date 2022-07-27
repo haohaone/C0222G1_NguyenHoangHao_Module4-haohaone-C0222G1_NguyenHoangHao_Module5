@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {ProductService} from '../../service/product.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Product} from '../../model/product';
+import {Category} from '../../model/category';
 
 @Component({
   selector: 'app-product-edit',
@@ -15,21 +16,37 @@ export class ProductEditComponent implements OnInit {
     name: new FormControl(),
     price: new FormControl(),
     description: new FormControl(),
+    category: new FormControl(),
   });
+  categorys: Category[];
+  product: Product;
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void {
-    const id = Number(this.activatedRoute.snapshot.params.id);
-    const product: Product = this.productService.findById(id);
-    this.productForm.setValue(product);
+    this.productService.getAllCategory().subscribe(
+      value => {this.categorys = value; },
+      error => {},
+      () => {
+        const id = Number(this.activatedRoute.snapshot.params.id);
+        this.productService.findById(id).subscribe(
+          value => {this.product = value; },
+          error => {},
+          () => this.productForm.setValue(this.product)
+        );
+      });
   }
 
   submit() {
     const product = this.productForm.value;
-    this.productService.updateProduct(product);
-    this.productForm.reset();
-    this.router.navigateByUrl('/');
+    console.log(product);
+    this.productService.updateProduct(product).subscribe(
+      value => {},
+      error => {},
+      () => {
+        this.router.navigateByUrl('/');
+      }
+    );
   }
 }

@@ -4,8 +4,11 @@
 </div>
 
 <div class="container">
-  <div class="mb-5 w-100">
+  <div class="mb-3 w-100">
     <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW FACILITY</button>
+  </div>
+  <div class="w-100 center-box text-danger mb-3" style="font-weight: bold; font-size: 17px">
+    {{msg}}
   </div>
   <div class="row mb-5">
     <div *ngFor="let facility of facilityList" class="card m-2" style="width: 32%; float: left">
@@ -58,7 +61,7 @@
           <button class="btn w-100 delete" (click)="valueOfId(facility.id)" data-toggle="modal" data-target="#delete">Delete</button>
         </div>
         <div class="mt-3">
-          <button class="btn w-100 edit" data-toggle="modal" data-target="#edit">Edit</button>
+          <button class="btn w-100 edit" (click)="edit(facility.id)" data-toggle="modal" data-target="#edit">Edit</button>
         </div>
       </div>
     </div>
@@ -106,39 +109,77 @@
       </div>
       <div class="modal-body w-100">
         <div class="w-100 center-box">
-          <form class="w-100">
+          <form class="w-100" [formGroup]="facilityForm">
             <div class="p-3">
               <div class="form-group mb-3">
                 <label>Id facility:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="id" hidden>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056" formControlName="id" disabled>
               </div>
               <div class="form-group mb-3">
                 <label>Name facility:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
-              </div>
-              <div class="form-group mb-3">
-                <label>Type facility:</label>
-                <input type="text"
-                       class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="name">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="facilityForm.controls.name.hasError('required') &&
+                                      facilityForm.controls.name.dirty">
+                  Please input name facility!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Max people:</label>
                 <input type="number"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="maxPeople">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="facilityForm.controls.maxPeople.hasError('required') &&
+                                      facilityForm.controls.maxPeople.dirty">
+                  Please input max people!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Area service:</label>
                 <input type="number"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="areaUse">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="facilityForm.controls.areaUse.hasError('required') &&
+                                      facilityForm.controls.areaUse.dirty">
+                  Please input area service!
+                </div>
               </div>
-              <button onclick="addNew()" class="btn btn-success w-100 text-white"
+              <div class="form-group mb-3">
+                <label>Facility view:</label>
+                <select class="form-control" formControlName="view" style="border: solid 2px #046056">
+                  <option value="" selected>--Choose facility view--</option>
+                  <option *ngFor="let view of views" [ngValue]="view">{{view}}</option>
+                </select>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="facilityForm.controls.view.hasError('required') &&
+                                      facilityForm.controls.view.dirty">
+                  Please input facility view!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Facility image:</label>
+                <textarea type="text"
+                          class="form-control text-dark"
+                          style="border: solid 2px #046056" formControlName="url">
+                </textarea>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="facilityForm.controls.url.hasError('required') &&
+                                      facilityForm.controls.url.dirty">
+                  Please input facility image!
+                </div>
+              </div>
+              <button (click)="editFacility()" class="btn btn-success w-100 text-white"
+                      data-dismiss="modal"
+                      [disabled]="facilityForm.invalid"
                       style="background-color: #046056">
                 Edit
               </button>
@@ -172,41 +213,77 @@
                 <input type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056" formControlName="id">
+                <div class="text-danger" style="font-weight: bold"
+                       *ngIf="facilityForm.controls.id.hasError('required') &&
+                                      facilityForm.controls.id.dirty">
+                  Please input id facility!
+                </div>
+                <div class="text-danger" style="font-weight: bold"
+                       *ngIf="facilityForm.controls.id.hasError('isExitsId') &&
+                                      facilityForm.controls.id.dirty">
+                  This id is exited!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Name facility:</label>
                 <input type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056" formControlName="name">
+                <div class="text-danger" style="font-weight: bold"
+                       *ngIf="facilityForm.controls.name.hasError('required') &&
+                                      facilityForm.controls.name.dirty">
+                  Please input name facility!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Max people:</label>
                 <input type="number"
                        class="form-control text-dark"
                        style="border: solid 2px #046056" formControlName="maxPeople">
+                <div class="text-danger" style="font-weight: bold"
+                       *ngIf="facilityForm.controls.maxPeople.hasError('required') &&
+                                      facilityForm.controls.maxPeople.dirty">
+                  Please input max people!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Area service:</label>
                 <input type="number"
                        class="form-control text-dark"
                        style="border: solid 2px #046056" formControlName="areaUse">
+                <div class="text-danger" style="font-weight: bold"
+                       *ngIf="facilityForm.controls.areaUse.hasError('required') &&
+                                      facilityForm.controls.areaUse.dirty">
+                  Please input area service!
+                </div>
               </div>
               <div class="form-group mb-3">
-                <label>View facility:</label>
+                <label>Facility view:</label>
                 <select class="form-control" formControlName="view" style="border: solid 2px #046056">
-                  <option value="" selected>--Choose view facility--</option>
+                  <option value="" selected>--Choose facility view--</option>
                   <option *ngFor="let view of views" [ngValue]="view">{{view}}</option>
                 </select>
+                <div class="text-danger" style="font-weight: bold"
+                       *ngIf="facilityForm.controls.view.hasError('required') &&
+                                      facilityForm.controls.view.dirty">
+                  Please input facility view!
+                </div>
               </div>
               <div class="form-group mb-3">
-                <label>View facility:</label>
+                <label>Facility image:</label>
                 <textarea type="text"
                        class="form-control text-dark"
                        style="border: solid 2px #046056" formControlName="url">
                 </textarea>
+                <div class="text-danger" style="font-weight: bold"
+                       *ngIf="facilityForm.controls.url.hasError('required') &&
+                                      facilityForm.controls.url.dirty">
+                  Please input facility image!
+                </div>
               </div>
               <button (click)="onSubmit()" class="btn btn-success w-100 text-white"
                       data-dismiss="modal"
+                      [disabled]="facilityForm.invalid"
                       style="background-color: #046056">
                 Add new
               </button>

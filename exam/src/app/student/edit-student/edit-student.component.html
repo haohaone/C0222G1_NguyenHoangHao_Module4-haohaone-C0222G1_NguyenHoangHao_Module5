@@ -1,0 +1,75 @@
+
+<div class="bg-menu center-box mb-4">
+  <h1 style="color: white;
+    font-size: 50px;">FURAMA STUDENT</h1>
+</div>
+<div class="container">
+  <div class="mb-3 w-100">
+    <button class="btn w-100 delete" routerLink="/">BACK TO CUSTOMER</button>
+  </div>
+  <form class="w-100" [formGroup]="studentForm">
+    <div class="p-3">
+      <div class="form-group mb-3">
+        <label>Id student:</label>
+        <input type="text"
+               class="form-control text-dark"
+               style="border: solid 2px #046056" formControlName="id" hidden>
+        <input type="text"
+               class="form-control text-dark"
+               style="border: solid 2px #046056" formControlName="id" disabled>
+      </div>
+      <div class="form-group mb-3">
+        <label>Name student:</label>
+        <input type="text"
+               class="form-control text-dark"
+               style="border: solid 2px #046056"
+               formControlName="name">
+        <div class="text-danger" style="font-weight: bold"
+             *ngIf="studentForm.controls.name.hasError('required') &&
+                                      studentForm.controls.name.dirty">
+          Please input name student!
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label>Day of birth:</label>
+        <input type="date"
+               class="form-control text-dark"
+               style="border: solid 2px #046056" formControlName="dateOfBirth">
+        <div class="text-danger" style="font-weight: bold"
+             *ngIf="studentForm.controls.dateOfBirth.hasError('required') &&
+                                      studentForm.controls.dateOfBirth.dirty">
+          Please input date of birth!
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label>Gender:</label>
+        <select class="form-control" formControlName="gender" style="border: solid 2px #046056">
+          <option value="1">Male</option>
+          <option value="0">Female</option>
+        </select>
+        <div class="text-danger" style="font-weight: bold"
+             *ngIf="studentForm.controls.gender.hasError('required') &&
+                                      studentForm.controls.gender.dirty">
+          Please input type customer!
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label>Class:</label>
+        <select class="form-control" formControlName="class" [compareWith]="compareWithId" style="border: solid 2px #046056">
+          <option [ngValue]="class" *ngFor="let class of classList">{{class.name}}</option>
+        </select>
+        <div class="text-danger" style="font-weight: bold"
+             *ngIf="studentForm.controls.class.hasError('required') &&
+                                      studentForm.controls.class.dirty">
+          Please input class!
+        </div>
+      </div>
+      <button (click)="edit()" class="btn btn-success w-100 text-white"
+              style="background-color: #046056"
+              data-dismiss="modal"
+              [disabled]="studentForm.invalid">
+        Edit
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,48 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "name": "Smart Phone"
+    },
+    {
+      "id": 2,
+      "name": "Laptop"
+    },
+    {
+      "id": 3,
+      "name": "PC"
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "name": "IPhone 12",
+      "price": 2400000,
+      "description": "New",
+      "category": {
+        "id": 1,
+        "name": "Smart Phone"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Macbook 11 Pro",
+      "price": 1560000,
+      "description": "Like new",
+      "category": {
+        "id": 2,
+        "name": "Laptop"
+      }
+    },
+    {
+      "id": 678,
+      "name": "ghjkhj",
+      "price": 567,
+      "description": "zzzzzzzz",
+      "category": {
+        "id": 2,
+        "name": "Laptop"
+      }
+    }
+  ]
+}

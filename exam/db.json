@@ -1,0 +1,92 @@
+{
+  "classList": [
+    {
+      "id": 1,
+      "name": "C0222G1"
+    },
+    {
+      "id": 2,
+      "name": "C0322G2"
+    },
+    {
+      "id": 3,
+      "name": "C1221G1"
+    },
+    {
+      "id": 4,
+      "name": "C0921G2"
+    }
+  ],
+  "studentList": [
+    {
+      "id": 2,
+      "name": "Tran Cong Khanh",
+      "dateOfBirth": "2001-08-14",
+      "gender": 0,
+      "class": {
+        "id": 2,
+        "name": "C0322G2"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Hao Hao",
+      "dateOfBirth": "1999-07-08",
+      "gender": "1",
+      "class": {
+        "id": 2,
+        "name": "C0322G2"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Thao Uyen",
+      "dateOfBirth": "1999-08-13",
+      "gender": "0",
+      "class": {
+        "id": 3,
+        "name": "C0921G2"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Duy Trung",
+      "dateOfBirth": "2003-11-11",
+      "gender": "1",
+      "class": {
+        "id": 4,
+        "name": "C1221G1"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Kim Hiếu",
+      "dateOfBirth": "2001-11-11",
+      "gender": "1",
+      "class": {
+        "id": 4,
+        "name": "C1221G1"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Huy Hoang",
+      "dateOfBirth": "1997-11-11",
+      "gender": "1",
+      "class": {
+        "id": 1,
+        "name": "C0222G1"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Trung Kiên",
+      "dateOfBirth": "1999-12-11",
+      "gender": "1",
+      "class": {
+        "id": 3,
+        "name": "C1221G1"
+      }
+    }
+  ]
+}

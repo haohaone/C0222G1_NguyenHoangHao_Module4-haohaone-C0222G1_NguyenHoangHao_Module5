@@ -8,6 +8,9 @@
   <div class="mb-4 w-100">
     <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW CONTRACT</button>
   </div>
+  <div class="w-100 center-box text-danger mb-3" style="font-weight: bold; font-size: 17px">
+    {{msg}}
+  </div>
   <table class="w-100">
     <tr>
       <th class="text-center">Id</th>
@@ -53,46 +56,86 @@
       </div>
       <div class="modal-body w-100">
         <div class="w-100 center-box">
-          <form class="w-100">
+          <form class="w-100" [formGroup]="contractForm">
             <div class="p-3">
               <div class="form-group mb-3">
                 <label>Id contract:</label>
                 <input type="text"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="id">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="contractForm.controls.id.hasError('required') &&
+                                      contractForm.controls.id.dirty">
+                  Please input id contract!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Name customer:</label>
-                <input type="text"
-                       class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                <select class="form-control" formControlName="name" style="border: solid 2px #046056">
+                  <option value="" selected>--Choose customer--</option>
+                  <option *ngFor="let customer of customerList" [ngValue]="customer.name">
+                    {{customer.name}} {{customer.id}}
+                  </option>
+                </select>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="contractForm.controls.name.hasError('required') &&
+                                      contractForm.controls.name.dirty">
+                  Please input name customer!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Start date:</label>
                 <input type="date"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="startDate">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="contractForm.controls.startDate.hasError('required') &&
+                                      contractForm.controls.startDate.dirty">
+                  Please input start date!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>End date:</label>
                 <input type="date"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="endDate">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="contractForm.controls.endDate.hasError('required') &&
+                                      contractForm.controls.endDate.dirty">
+                  Please input end date!
+                </div>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="contractForm.hasError('beforeDate') &&
+                     (contractForm.touched)">
+                  Please input end date after start date!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Cost:</label>
                 <input type="number"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="cost">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="contractForm.controls.cost.hasError('required') &&
+                                      contractForm.controls.cost.dirty">
+                  Please input cost!
+                </div>
               </div>
               <div class="form-group mb-3">
                 <label>Total price:</label>
                 <input type="number"
                        class="form-control text-dark"
-                       style="border: solid 2px #046056">
+                       style="border: solid 2px #046056" formControlName="totalPrice">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="contractForm.controls.totalPrice.hasError('required') &&
+                                      contractForm.controls.totalPrice.dirty">
+                  Please input total price!
+                </div>
               </div>
-              <button onclick="addNew()" class="btn btn-success w-100 text-white"
-                      style="background-color: #046056">
+              <button (click)="addNew()" class="btn btn-success w-100 text-white"
+                      style="background-color: #046056"
+                      [disabled]="contractForm.invalid"
+                      data-dismiss="modal">
                 Add new
               </button>
             </div>
