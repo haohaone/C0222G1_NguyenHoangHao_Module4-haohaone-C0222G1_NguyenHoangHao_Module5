@@ -1,0 +1,253 @@
+<div class="bg-menu center-box mb-4">
+  <h1 style="color: white;
+    font-size: 50px;">TICKET LIST</h1>
+</div>
+<div class="container">
+  <div class="mb-4 w-100">
+    <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW STUDENT</button>
+  </div>
+  <table class="w-100 table-hover">
+    <tr>
+      <th class="text-center">Id</th>
+      <th class="text-center">Start Place</th>
+      <th class="text-center">End Place</th>
+      <th class="text-center">Price</th>
+      <th class="text-center">Start Date</th>
+      <th class="text-center">Start Time</th>
+      <th class="text-center">Home Bus</th>
+      <th class="text-center">Quantity</th>
+      <th class="text-center">Buy</th>
+    </tr>
+    <tr *ngFor="let ticket of ticketList">
+      <td class="text-center">{{ticket.id}}</td>
+      <td class="text-center">{{ticket.startPlace}}</td>
+      <td class="text-center">{{ticket.endPlace}}</td>
+      <td class="text-center">{{ticket.price}}</td>
+      <td class="text-center">{{ticket.startDate | date:"dd/MM/yyyy"}}</td>
+      <td class="text-center">{{ticket.timeStart}}</td>
+      <td class="text-center">{{ticket.homeBus.name}}</td>
+      <td class="text-center">{{ticket.quantity}}</td>
+      <td class="text-center">
+        <button class="btn delete" data-toggle="modal" data-target="#delete" (click)="valueOfId(ticket.id)">
+          Buy
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8" class="text-center">
+        <button class="btn delete me-md-3" (click)="previous()" [hidden]="page == 1">
+          Previous
+        </button>
+        <button class="btn delete" (click)="next()" [hidden]="page == maxPage">
+          Next
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+<button class="bi bi-search icon-right btn center-box delete" data-toggle="modal" data-target="#search"></button>
+<button class="bi bi-house-door-fill icon-left btn center-box delete" (click)="home()"></button>
+
+<div class="modal" id="delete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100 text-center" *ngIf="ticket.quantity > 0">Are you sure to buy ticket
+          <br>
+          from {{ticket.startPlace}} to {{ticket.endPlace}}
+          <br>
+          at {{ticket.startDate}} {{ticket.timeStart}}!
+        </h4>
+        <h4 class="modal-title w-100 text-center" *ngIf="ticket.quantity == 0">
+          This ticket is sold out!
+        </h4>
+        <button type="button" class="btn" style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn text-white"
+                style="background-color: #046056"
+                (click)="buy()"
+                data-dismiss="modal" [hidden]="ticket.quantity == 0">
+          Buy ticket
+        </button>
+        <button type="button" class="btn text-white" data-dismiss="modal" style="background-color: #046056">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="add">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header row center-box w-100 border-0 pb-md-0">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="form-group col-md-10 center-box" style="font-size: 25px; font-weight: bold; color: #046056">
+          ADD NEW TICKET
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn " style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+        </div>
+      </div>
+      <div class="modal-body w-100">
+        <div class="w-100 center-box">
+          <form class="w-100" [formGroup]="ticketForm">
+            <div class="p-3">
+              <div class="form-group mb-3">
+                <label>Start place:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056"
+                       formControlName="startPlace">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.startPlace.hasError('required') &&
+                                      ticketForm.controls.startPlace.dirty">
+                  Please input start place!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>End place:</label>
+                <input type="text"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056" formControlName="endPlace">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.endPlace.hasError('required') &&
+                                      ticketForm.controls.endPlace.dirty">
+                  Please input end place!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Home bus:</label>
+                <select class="form-control" formControlName="homeBus" style="border: solid 2px #046056">
+                  <option value="" selected>--Choose home bus--</option>
+                  <option [ngValue]="homeBus" *ngFor="let homeBus of HomeBusList">{{homeBus.name}}</option>
+                </select>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.homeBus.hasError('required') &&
+                                      ticketForm.controls.homeBus.dirty">
+                  Please input home bus!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Start Date:</label>
+                <input type="date"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056" formControlName="startDate">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.startDate.hasError('required') &&
+                                      ticketForm.controls.startDate.dirty">
+                  Please input start date!
+                </div>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.hasError('beforeDate') &&
+                     (ticketForm.dirty)">
+                  Please input start date greater than local day!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Start time:</label>
+                <input type="time"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056" formControlName="timeStart">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.timeStart.hasError('required') &&
+                                      ticketForm.controls.timeStart.dirty">
+                  Please input start time!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Quantity:</label>
+                <input type="number"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056" formControlName="quantity">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.quantity.hasError('required') &&
+                                      ticketForm.controls.quantity.dirty">
+                  Please input quantity!
+                </div>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.quantity.hasError('min') &&
+                                      ticketForm.controls.quantity.dirty">
+                  Please input quantity correct format!
+                </div>
+              </div>
+              <div class="form-group mb-3">
+                <label>Price:</label>
+                <input type="number"
+                       class="form-control text-dark"
+                       style="border: solid 2px #046056" formControlName="price">
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.price.hasError('required') &&
+                                      ticketForm.controls.price.dirty">
+                  Please input price!
+                </div>
+                <div class="text-danger" style="font-weight: bold"
+                     *ngIf="ticketForm.controls.price.hasError('min') &&
+                                      ticketForm.controls.price.dirty">
+                  Please input price correct format!
+                </div>
+              </div>
+              <button (click)="addNew()" class="btn btn-success w-100 text-white"
+                      style="background-color: #046056"
+                      data-dismiss="modal"
+                      [disabled]="ticketForm.invalid">
+                Add new
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="search">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h4 class="modal-title w-100 text-center" style="color:#046056;">
+          Search by name student
+        </h4>
+        <button type="button" class="btn" style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
+      </div>
+      <div class="modal-body border-0">
+        <label>Start place:</label>
+        <input type="text"
+               class="form-control text-dark"
+               style="border: solid 2px #046056" [(ngModel)]="searchStartPlace"
+               placeholder="Input start place">
+      </div>
+      <div class="modal-body border-0">
+        <label>End place:</label>
+        <input type="text"
+               class="form-control text-dark"
+               style="border: solid 2px #046056" [(ngModel)]="searchEndPlace"
+               placeholder="Input end place">
+      </div>
+      <div class="modal-body border-0">
+        <label>Start date:</label>
+        <input type="date"
+               class="form-control text-dark"
+               style="border: solid 2px #046056" [(ngModel)]="searchStartDate">
+      </div>
+      <div class="modal-body border-0">
+        <label>End date:</label>
+        <input type="date"
+               class="form-control text-dark"
+               style="border: solid 2px #046056" [(ngModel)]="searchEndDate">
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn text-white"
+                style="background-color: #046056"
+                (click)="search()"
+                data-dismiss="modal">
+          Search
+        </button>
+        <button type="button" class="btn text-white" data-dismiss="modal" style="background-color: #046056">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

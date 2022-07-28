@@ -6,6 +6,7 @@ import {EditStudentComponent} from './student/edit-student/edit-student.componen
 
 const routes: Routes = [
   {path: '', component: StudentComponent},
+  {path: './:toast/:id', component: StudentComponent},
   {path: 'edit/:id', component: EditStudentComponent},
 ];
 

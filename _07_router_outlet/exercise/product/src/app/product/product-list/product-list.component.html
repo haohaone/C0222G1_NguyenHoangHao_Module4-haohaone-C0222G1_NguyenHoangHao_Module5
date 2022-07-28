@@ -15,7 +15,7 @@
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
     <td>{{product.category.name}}</td>
-    <td><a routerLink="/product/edit/{{product.id}}">Chỉnh sửa</a></td>
+    <td><a routerLink="/edit/{{product.id}}">Chỉnh sửa</a></td>
     <td><a (click)="delete(product.id)">Xóa</a></td>
   </tr>
 </table>

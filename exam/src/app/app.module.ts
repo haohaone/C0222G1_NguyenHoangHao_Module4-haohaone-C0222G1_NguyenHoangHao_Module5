@@ -9,6 +9,8 @@ import {StudenRoutingModule} from './studen-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EditStudentComponent } from './student/edit-student/edit-student.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,14 @@ import { EditStudentComponent } from './student/edit-student/edit-student.compon
     StudenRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      closeButton: true,
+      progressBar: true,
+      positionClass:   'toast-top-right',
+    }),
   ],
   providers: [StudentService],
   bootstrap: [AppComponent]

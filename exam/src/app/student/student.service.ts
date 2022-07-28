@@ -8,7 +8,7 @@ import {Class} from '../class';
   providedIn: 'root'
 })
 export class StudentService {
-  API_URL = 'http://localhost:3000/studentList';
+  API_URL = 'http://localhost:3000/ticket';
   constructor(private httpClient: HttpClient) { }
 
   getMaxPage(): Observable<Student[]> {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StudentService} from '../student.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
@@ -40,7 +40,14 @@ export class EditStudentComponent implements OnInit {
 
   edit() {
     this.student = this.studentForm.value;
-    this.studentService.edit(this.student).subscribe();
-    this.router.navigateByUrl('/');
+    this.studentService.edit(this.student).subscribe(
+      value => {
+      },
+      error => {
+      },
+      () => {
+        this.router.navigate(['/./edit-successful', this.student.id]);
+      }
+    );
   }
 }

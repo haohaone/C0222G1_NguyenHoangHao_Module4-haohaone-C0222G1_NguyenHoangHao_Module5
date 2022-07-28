@@ -1,0 +1,161 @@
+{
+  "homeBus": [
+    {
+      "id": 1,
+      "name": "Phương Anh"
+    },
+    {
+      "id": 2,
+      "name": "Xuân Trang"
+    },
+    {
+      "id": 3,
+      "name": "Ngôi Sao"
+    }
+  ],
+  "ticket": [
+    {
+      "id": 1,
+      "price": 2000,
+      "startPlace": "Bến xe Đà Nẵng",
+      "endPlace": "Bến xe Hải Phòng",
+      "startDate": "2022-07-27",
+      "timeStart": "20:00",
+      "quantity": 8,
+      "homeBus": {
+        "id": 1,
+        "name": "Phương Anh"
+      }
+    },
+    {
+      "id": 2,
+      "price": 4000,
+      "startPlace": "Bến xe Đà Nẵng",
+      "endPlace": "Bến xe Hà Nội",
+      "startDate": "2022-07-30",
+      "timeStart": "12:00",
+      "quantity": 0,
+      "homeBus": {
+        "id": 2,
+        "name": "Xuân Trang"
+      }
+    },
+    {
+      "id": 4,
+      "price": 600,
+      "startPlace": "Bến xe Đà Nẵng",
+      "endPlace": "Bến xe Quảng Nam",
+      "startDate": "2022-08-01",
+      "timeStart": "08:00",
+      "quantity": 9,
+      "homeBus": {
+        "id": 3,
+        "name": "Ngôi Sao"
+      }
+    },
+    {
+      "id": 5,
+      "price": 7000,
+      "startPlace": "Bến xe Đà Nẵng",
+      "endPlace": "Bến xe Hải Phòng",
+      "startDate": "2022-07-31",
+      "timeStart": "08:00",
+      "quantity": 9,
+      "homeBus": {
+        "id": 3,
+        "name": "Ngôi Sao"
+      }
+    },
+    {
+      "id": 6,
+      "price": 5000,
+      "startPlace": "Bến xe Đà Nẵng",
+      "endPlace": "Bến xe Nam Định",
+      "startDate": "2022-07-31",
+      "timeStart": "08:00",
+      "quantity": 9,
+      "homeBus": {
+        "id": 3,
+        "name": "Ngôi Sao"
+      }
+    },
+    {
+      "id": 7,
+      "price": 3000,
+      "startPlace": "Bến xe Huế",
+      "endPlace": "Bến xe Sài Gòn",
+      "startDate": "2022-07-31",
+      "timeStart": "11:00",
+      "quantity": 9,
+      "homeBus": {
+        "id": 1,
+        "name": "Phương Anh"
+      }
+    },
+    {
+      "id": 8,
+      "price": 2400,
+      "startPlace": "Bến xe Đà Nẵng",
+      "endPlace": "Bến xe Quảng Trị",
+      "startDate": "2022-07-31",
+      "timeStart": "08:00",
+      "quantity": 9,
+      "homeBus": {
+        "id": 3,
+        "name": "Ngôi Sao"
+      }
+    },
+    {
+      "id": 9,
+      "price": 5000,
+      "startPlace": "Bến xe Đà Nẵng",
+      "endPlace": "Bến xe Sài Gòn",
+      "startDate": "2022-07-31",
+      "timeStart": "08:00",
+      "quantity": 9,
+      "homeBus": {
+        "id": 3,
+        "name": "Ngôi Sao"
+      }
+    },
+    {
+      "id": 10,
+      "price": 5000,
+      "startPlace": "Bến xe Hà Nội",
+      "endPlace": "Bến xe Sài Gòn",
+      "startDate": "2022-08-02",
+      "timeStart": "23:00",
+      "quantity": 9,
+      "homeBus": {
+        "id": 3,
+        "name": "Ngôi Sao"
+      }
+    },
+    {
+      "price": "4000",
+      "startPlace": "Bến xe Đà Nẵng",
+      "endPlace": "Bến xe Cà Mau",
+      "startDate": "2022-07-31",
+      "timeStart": "06:50",
+      "quantity": "19",
+      "homeBus": {
+        "id": 2,
+        "name": "Xuân Trang"
+      },
+      "id": 11
+    },
+    {
+      "price": 5555,
+      "startPlace": "đà nẵng",
+      "endPlace": "hà nội",
+      "startDate": "2022-07-29",
+      "timeStart": "16:27",
+      "quantity": 0,
+      "homeBus": {
+        "id": 1,
+        "name": "Phương Anh"
+      },
+      "id": 12
+    }
+  ]
+}
