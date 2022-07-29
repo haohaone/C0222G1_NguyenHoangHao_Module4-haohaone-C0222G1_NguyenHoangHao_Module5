@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Ticket} from "../model/ticket";
-import {HomeBus} from "../model/homeBus";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Ticket} from '../model/ticket';
+import {HomeBus} from '../model/homeBus';
 
 @Injectable({
   providedIn: 'root'

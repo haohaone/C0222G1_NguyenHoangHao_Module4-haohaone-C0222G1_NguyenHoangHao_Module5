@@ -1,4 +1,4 @@
-import {HomeBus} from "./homeBus";
+import {HomeBus} from './homeBus';
 
 export interface Ticket {
   id: number;

@@ -4,7 +4,7 @@
 </div>
 <div class="container">
   <div class="mb-4 w-100">
-    <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW STUDENT</button>
+    <button class="btn w-100 delete" data-toggle="modal" data-target="#add">ADD NEW TICKET</button>
   </div>
   <table class="w-100 table-hover">
     <tr>
@@ -34,7 +34,7 @@
       </td>
     </tr>
     <tr>
-      <td colspan="8" class="text-center">
+      <td colspan="9" class="text-center">
         <button class="btn delete me-md-3" (click)="previous()" [hidden]="page == 0">
           Previous
         </button>
@@ -102,7 +102,7 @@
                        formControlName="startPlace">
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.startPlace.hasError('required') &&
-                                      ticketForm.controls.startPlace.dirty">
+                                      (ticketForm.controls.startPlace.dirty || ticketForm.controls.startPlace.touched)">
                   Please input start place!
                 </div>
               </div>
@@ -113,7 +113,7 @@
                        style="border: solid 2px #046056" formControlName="endPlace">
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.endPlace.hasError('required') &&
-                                      ticketForm.controls.endPlace.dirty">
+                                      (ticketForm.controls.endPlace.dirty || ticketForm.controls.endPlace.touched)">
                   Please input end place!
                 </div>
               </div>
@@ -125,7 +125,7 @@
                 </select>
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.homeBus.hasError('required') &&
-                                      ticketForm.controls.homeBus.dirty">
+                                      (ticketForm.controls.homeBus.dirty || ticketForm.controls.homeBus.touched)">
                   Please input home bus!
                 </div>
               </div>
@@ -136,12 +136,12 @@
                        style="border: solid 2px #046056" formControlName="startDate">
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.startDate.hasError('required') &&
-                                      ticketForm.controls.startDate.dirty">
+                                      (ticketForm.controls.startDate.dirty || ticketForm.controls.startDate.touched)">
                   Please input start date!
                 </div>
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.hasError('beforeDate') &&
-                     (ticketForm.dirty)">
+                     (ticketForm.dirty || ticketForm.touched)">
                   Please input start date greater than local day!
                 </div>
               </div>
@@ -152,7 +152,7 @@
                        style="border: solid 2px #046056" formControlName="timeStart">
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.timeStart.hasError('required') &&
-                                      ticketForm.controls.timeStart.dirty">
+                                      (ticketForm.controls.timeStart.dirty || ticketForm.controls.timeStart.touched)">
                   Please input start time!
                 </div>
               </div>
@@ -163,12 +163,12 @@
                        style="border: solid 2px #046056" formControlName="quantity">
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.quantity.hasError('required') &&
-                                      ticketForm.controls.quantity.dirty">
+                                      (ticketForm.controls.quantity.dirty || ticketForm.controls.quantity.touched)">
                   Please input quantity!
                 </div>
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.quantity.hasError('min') &&
-                                      ticketForm.controls.quantity.dirty">
+                                      (ticketForm.controls.quantity.dirty || ticketForm.controls.quantity.touched)">
                   Please input quantity correct format!
                 </div>
               </div>
@@ -179,12 +179,12 @@
                        style="border: solid 2px #046056" formControlName="price">
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.price.hasError('required') &&
-                                      ticketForm.controls.price.dirty">
+                                      (ticketForm.controls.price.dirty || ticketForm.controls.price.touched)">
                   Please input price!
                 </div>
                 <div class="text-danger" style="font-weight: bold"
                      *ngIf="ticketForm.controls.price.hasError('min') &&
-                                      ticketForm.controls.price.dirty">
+                                      (ticketForm.controls.price.dirty || ticketForm.controls.price.touched)">
                   Please input price correct format!
                 </div>
               </div>
@@ -207,7 +207,7 @@
     <div class="modal-content">
       <div class="modal-header border-0">
         <h4 class="modal-title w-100 text-center" style="color:#046056;">
-          Search by name student
+          SEARCH BY TICKET
         </h4>
         <button type="button" class="btn" style="font-weight: bold; color: #046056" data-dismiss="modal">X</button>
       </div>

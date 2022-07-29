@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {TicketService} from "../service/ticket.service";
-import {ToastrService} from "ngx-toastr";
-import {Ticket} from "../model/ticket";
-import {HomeBus} from "../model/homeBus";
-import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {TicketService} from '../service/ticket.service';
+import {ToastrService} from 'ngx-toastr';
+import {Ticket} from '../model/ticket';
+import {HomeBus} from '../model/homeBus';
+import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-ticket',
@@ -128,7 +128,7 @@ export class TicketComponent implements OnInit {
       this.searchEndDate,
       0
     ).subscribe(
-      value => {this.ticketList = value.content; this.maxPage = value.totalPages; });
+      value => {this.ticketList = value.content; this.maxPage = value.totalPages; this.page = 0; });
   }
 
   home() {
