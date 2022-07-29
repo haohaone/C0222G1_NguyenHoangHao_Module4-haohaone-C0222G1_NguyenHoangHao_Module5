@@ -35,10 +35,10 @@
     </tr>
     <tr>
       <td colspan="8" class="text-center">
-        <button class="btn delete me-md-3" (click)="previous()" [hidden]="page == 1">
+        <button class="btn delete me-md-3" (click)="previous()" [hidden]="page == 0">
           Previous
         </button>
-        <button class="btn delete" (click)="next()" [hidden]="page == maxPage">
+        <button class="btn delete" (click)="next()" [hidden]="page == maxPage - 1 || maxPage <= 1">
           Next
         </button>
       </td>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Student} from '../student';
@@ -9,7 +9,9 @@ import {Class} from '../class';
 })
 export class StudentService {
   API_URL = 'http://localhost:3000/ticket';
-  constructor(private httpClient: HttpClient) { }
+
+  constructor(private httpClient: HttpClient) {
+  }
 
   getMaxPage(): Observable<Student[]> {
     return this.httpClient.get<Student[]>(this.API_URL);

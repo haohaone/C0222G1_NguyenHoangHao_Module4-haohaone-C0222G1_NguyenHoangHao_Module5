@@ -46,20 +46,26 @@ export class StudentComponent implements OnInit {
       });
 
     this.studentService.showStudentList(this.searchByName, this.page).subscribe(
-      value => {this.studentList = value; },
-      error => {},
+      value => {
+        this.studentList = value;
+      },
+      error => {
+      },
       () => {
-          const toast = this.activatedRoute.snapshot.params.toast;
-          const id = this.activatedRoute.snapshot.params.id;
-          if (toast === 'edit-successful') {
-            this.studentService.findId(id).subscribe(
-              value => {this.student = value; },
-              error => {},
-              () => {
-                this.toast.success('Edit successful!', this.student.name);
-              }
-            );
-          }
+        const toast = this.activatedRoute.snapshot.params.toast;
+        const id = this.activatedRoute.snapshot.params.id;
+        if (toast === 'edit-successful') {
+          this.studentService.findId(id).subscribe(
+            value => {
+              this.student = value;
+            },
+            error => {
+            },
+            () => {
+              this.toast.success('Edit successful!', this.student.name);
+            }
+          );
+        }
       });
 
     this.getClassList();
@@ -112,26 +118,32 @@ export class StudentComponent implements OnInit {
 
   previous() {
     --this.page;
-    this.studentService.showStudentList(this.searchByName , this.page).subscribe(value => this.studentList = value);
+    this.studentService.showStudentList(this.searchByName, this.page).subscribe(value => this.studentList = value);
   }
 
   next() {
     ++this.page;
     console.log(this.searchByName);
-    this.studentService.showStudentList(this.searchByName , this.page).subscribe(value => this.studentList = value);
+    this.studentService.showStudentList(this.searchByName, this.page).subscribe(value => this.studentList = value);
   }
 
   search() {
     console.log(this.searchByName);
-    this.studentService.showStudentList(this.searchByName , 1).subscribe(
+    this.studentService.showStudentList(this.searchByName, 1).subscribe(
       value => this.studentList = value);
   }
 
   home() {
-    this.studentService.showStudentList('' , 1).subscribe(
-      value => {this.studentList = value; },
-      error => {},
-      () => {this.page = 1; this.searchByName = ''; }
+    this.studentService.showStudentList('', 1).subscribe(
+      value => {
+        this.studentList = value;
+      },
+      error => {
+      },
+      () => {
+        this.page = 1;
+        this.searchByName = '';
+      }
     );
 
   }

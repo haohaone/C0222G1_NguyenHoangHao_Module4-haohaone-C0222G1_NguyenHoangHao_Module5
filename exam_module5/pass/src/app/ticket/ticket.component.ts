@@ -12,15 +12,14 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
 })
 export class TicketComponent implements OnInit {
   ticketList: Ticket[];
-  idTicket: number;
   ticket: Ticket;
-  page = 1;
+  page = 0;
   maxPage: number;
   length: number;
   searchStartPlace = '';
   searchEndPlace = '';
-  searchStartDate = '00-00-0000';
-  searchEndDate = '31-12-9999';
+  searchStartDate = '';
+  searchEndDate = '';
   HomeBusList: HomeBus[];
   ticketForm: FormGroup = new FormGroup({
     price: new FormControl('', [Validators.required, Validators.min(1)]),
@@ -35,17 +34,6 @@ export class TicketComponent implements OnInit {
   constructor(private ticketService: TicketService,
               private toast: ToastrService) { }
   ngOnInit(): void {
-    this.ticketService.getMaxPage().subscribe(value => this.length = value.length,
-      error => {
-      },
-      () => {
-        if (this.length % 4 === 0) {
-          this.maxPage = this.length / 4;
-        } else {
-          this.maxPage = this.length / 4 + 1;
-        }
-      });
-
     this.getTicketList();
 
     this.getHomeBusList();
@@ -68,7 +56,7 @@ export class TicketComponent implements OnInit {
       this.searchStartDate,
       this.searchEndDate,
       this.page).subscribe(
-      value => this.ticketList = value);
+      value => {this.ticketList = value.content; this.maxPage = value.totalPages; });
   }
 
   getHomeBusList() {
@@ -118,7 +106,7 @@ export class TicketComponent implements OnInit {
       this.searchEndPlace,
       this.searchStartDate,
       this.searchEndDate,
-      this.page).subscribe(value => this.ticketList = value);
+      this.page).subscribe(value => {this.ticketList = value.content; this.maxPage = value.totalPages; });
   }
 
   next() {
@@ -129,7 +117,7 @@ export class TicketComponent implements OnInit {
       this.searchStartDate,
       this.searchEndDate,
       this.page
-    ).subscribe(value => this.ticketList = value);
+    ).subscribe(value => {this.ticketList = value.content; this.maxPage = value.totalPages; });
   }
 
   search() {
@@ -138,16 +126,16 @@ export class TicketComponent implements OnInit {
       this.searchEndPlace,
       this.searchStartDate,
       this.searchEndDate,
-      1
+      0
     ).subscribe(
-      value => this.ticketList = value);
+      value => {this.ticketList = value.content; this.maxPage = value.totalPages; });
   }
 
   home() {
-    this.ticketService.showTicketList('', '' , '00-00-0000', '31-12-9999', 1).subscribe(
-      value => {this.ticketList = value; },
+    this.ticketService.showTicketList('', '' , '0000-00-00', '9999-12-31', 0).subscribe(
+      value => {this.ticketList = value.content; this.maxPage = value.totalPages; },
       error => {},
-      () => {this.page = 1; this.searchEndPlace = ''; this.searchStartPlace = ''; }
+      () => {this.page = 0; this.searchEndPlace = ''; this.searchStartPlace = ''; }
     );
 
   }

@@ -20,25 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47f1c6e7-53b9-4390-b09f-43e63e4cee73" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/exam_module5.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass/src/app/model/homeBus.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass/src/app/model/ticket.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pass/src/assets/contract.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/controller/TicketController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/model/HomeBus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/model/Ticket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/repository/HomeBusRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/repository/TicketRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/service/HomeBusService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/service/TicketService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/service/imp/HomeBusServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/java/com/exam/service/imp/TicketServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../exam_module5_spring/src/main/resources/database/exam.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../exam/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../exam/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../exam/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../exam/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/e2e/protractor.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/e2e/protractor.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/e2e/src/app.e2e-spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/e2e/src/app.po.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/e2e/src/app.po.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../exam/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../exam/src/app/studen-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/studen-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/student/edit-student/edit-student.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/edit-student/edit-student.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/student/edit-student/edit-student.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/edit-student/edit-student.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/student/edit-student/edit-student.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/edit-student/edit-student.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../exam/src/app/student/edit-student/edit-student.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/edit-student/edit-student.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../exam/src/app/student/student.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/student.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/student/student.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/student.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/student/student.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/student.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../exam/src/app/student/student.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/student.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/app/student/student.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/student.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../exam/src/app/student/student.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/app/student/student.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../exam/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../exam/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exam/src/test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass/src/app/service/ticket.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pass/src/app/service/ticket.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass/src/app/ticket/ticket.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/pass/src/app/ticket/ticket.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pass/src/app/ticket/ticket.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pass/src/app/ticket/ticket.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +82,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../case_study_angular" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -113,6 +129,7 @@
       <workItem from="1658971626509" duration="652000" />
       <workItem from="1658976437588" duration="7792000" />
       <workItem from="1658996805594" duration="3478000" />
+      <workItem from="1659057766476" duration="7596000" />
     </task>
     <servers />
   </component>
@@ -136,25 +153,25 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="137" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1658993771833" />
-    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1659002190183">
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1659063335072">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1659002190183" />
-    <state width="1345" height="192" key="GridCell.Tab.0.bottom" timestamp="1659002197195">
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1659063335072" />
+    <state width="1345" height="192" key="GridCell.Tab.0.bottom" timestamp="1659063476599">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1659002197195" />
-    <state width="1345" height="192" key="GridCell.Tab.0.center" timestamp="1659002197195">
+    <state width="1345" height="192" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1659063476599" />
+    <state width="1345" height="192" key="GridCell.Tab.0.center" timestamp="1659063476599">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1659002197195" />
-    <state width="1345" height="192" key="GridCell.Tab.0.left" timestamp="1659002197195">
+    <state width="1345" height="192" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1659063476599" />
+    <state width="1345" height="192" key="GridCell.Tab.0.left" timestamp="1659063476598">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1659002197195" />
-    <state width="1345" height="192" key="GridCell.Tab.0.right" timestamp="1659002197195">
+    <state width="1345" height="192" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1659063476598" />
+    <state width="1345" height="192" key="GridCell.Tab.0.right" timestamp="1659063476599">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1659002197195" />
+    <state width="1345" height="192" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1659063476599" />
   </component>
 </project>

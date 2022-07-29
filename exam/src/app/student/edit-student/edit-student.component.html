@@ -1,4 +1,3 @@
-
 <div class="bg-menu center-box mb-4">
   <h1 style="color: white;
     font-size: 50px;">FURAMA STUDENT</h1>
@@ -55,7 +54,8 @@
       </div>
       <div class="form-group mb-3">
         <label>Class:</label>
-        <select class="form-control" formControlName="class" [compareWith]="compareWithId" style="border: solid 2px #046056">
+        <select class="form-control" formControlName="class" [compareWith]="compareWithId"
+                style="border: solid 2px #046056">
           <option [ngValue]="class" *ngFor="let class of classList">{{class.name}}</option>
         </select>
         <div class="text-danger" style="font-weight: bold"

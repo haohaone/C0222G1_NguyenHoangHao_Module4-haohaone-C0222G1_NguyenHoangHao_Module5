@@ -20,9 +20,11 @@ export class EditStudentComponent implements OnInit {
   });
   student: Student;
   classList: Class[];
+
   constructor(private studentService: StudentService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params.id;

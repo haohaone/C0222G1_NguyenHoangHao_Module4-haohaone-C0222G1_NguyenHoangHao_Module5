@@ -1,14 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "../node_modules/ngx-toastr/toastr.css";
-.menu{
+
+.menu {
   background-color: #046056;
   height: 70px;
   position: sticky;
   top: 0;
   z-index: 1;
 }
-.menu-top{
+
+.menu-top {
   height: 120px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -53,27 +55,27 @@ hr {
   font-size: 13px;
 }
 
-.trip-advisor{
+.trip-advisor {
   border-top: solid 5px #046056;
   box-shadow: 0 0.1rem 0.1rem 0.1rem lightgray;
 }
 
-.trip1{
+.trip1 {
   width: 118px;
   height: 19px;
 }
 
-.trip2{
+.trip2 {
   width: 75px;
   height: 18px;
 }
 
-.trip-text{
+.trip-text {
   font-size: 12px;
   font-weight: 500;
 }
 
-.navigation{
+.navigation {
   font-weight: 500;
 }
 
@@ -142,34 +144,34 @@ body {
   color: white;
 }
 
-.another-action{
+.another-action {
   color: #707070;
   font-size: 16px;
 }
 
-.another-action:hover{
+.another-action:hover {
   color: white;
   text-decoration-color: white;
 }
 
-.gmail{
+.gmail {
   color: #707070;
 }
 
-.gmail:hover{
+.gmail:hover {
   color: #707070;
   text-decoration-color: #707070;
 }
 
-.fb-yt:hover{
+.fb-yt:hover {
   text-decoration: none;
 }
 
-th,td{
+th, td {
   height: 50px;
 }
 
-tr:hover{
+tr:hover {
   background-color: rgba(229, 229, 229, 0.92);
 }
 

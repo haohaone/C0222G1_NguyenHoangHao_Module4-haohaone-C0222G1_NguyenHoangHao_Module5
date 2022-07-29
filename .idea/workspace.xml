@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="35290c92-5c1b-490b-824c-fc04141b46f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/exam/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/exam/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/e2e/protractor.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/exam/e2e/protractor.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/e2e/src/app.e2e-spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/e2e/src/app.po.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/e2e/src/app.po.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/edit-student/edit-student.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/edit-student/edit-student.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/edit-student/edit-student.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/edit-student/edit-student.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/edit-student/edit-student.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/edit-student/edit-student.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/edit-student/edit-student.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/edit-student/edit-student.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/student.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/student.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/student.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/student.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/student.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/student.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/student.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/student.service.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/app/student/student.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/app/student/student.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exam/src/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exam/src/test.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2Cb3vf9X4tRWeMI2ipVGadqs86B" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="35290c92-5c1b-490b-824c-fc04141b46f9" name="Default Changelist" comment="" />
+      <created>1659057688020</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659057688020</updated>
+      <workItem from="1659057730768" duration="351000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="138" key="FileChooserDialogImpl" timestamp="1659058083540">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="463" y="138" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1659058083540" />
+  </component>
+</project>
