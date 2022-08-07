@@ -132,10 +132,10 @@ export class TicketComponent implements OnInit {
   }
 
   home() {
-    this.ticketService.showTicketList('', '' , '0000-00-00', '9999-12-31', 0).subscribe(
-      value => {this.ticketList = value.content; this.maxPage = value.totalPages; },
+    this.ticketService.showTicketList('', '' , '', '', 0).subscribe(
+      value => {this.ticketList = value.content; this.maxPage = value.totalPages; this.page = 0; },
       error => {},
-      () => {this.page = 0; this.searchEndPlace = ''; this.searchStartPlace = ''; }
+      () => {this.page = 0; this.searchEndPlace = ''; this.searchStartPlace = ''; this.searchStartDate = ''; this.searchEndDate = ''; }
     );
 
   }

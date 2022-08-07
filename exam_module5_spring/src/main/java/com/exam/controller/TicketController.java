@@ -23,6 +23,12 @@ public class TicketController {
                                       @PathVariable("startDate") String startDate,
                                       @PathVariable("endDate") String endDate,
                                       @PathVariable("page") Integer page) {
+        if (startPlace.equals(" ")){
+            startPlace = "";
+        }
+        if (endPlace.equals(" ")){
+            endPlace = "";
+        }
         return new ResponseEntity<>(ticketService.findAll(startPlace,
                 endPlace,
                 startDate,
